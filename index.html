@@ -3,125 +3,120 @@
 <html lang="en-us">
 
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-script-type" content="text/javascript">
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta name="author" content="Curtis Yungen">
+    <meta name="description" content="">
+    <meta name="keywords"
+        content="Curtis Yungen, Grocery List, Javascript, Onsen, Recipe Search, Yummly">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grocery List</title>
 
-    <meta charset="UTF-8">
-    <title>Project One</title>
+    <!-- Reset CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
 
-    <!-- jQuery -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
     <!-- Onsen UI CDN-->
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script> -->
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
 
+    <!-- jQuery -->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
 </head>
 
 <body>
-    <ons-navigator swipeable id="myNavigator" page="tab1.html">
-        <ons-page>
-            <ons-toolbar>
-                <div class="center">Recipe Search</div>
-            </ons-toolbar>
-            <ons-tabbar swipeable position="auto">
-                <ons-tab page="tab1.html" label="Profile" icon="fa-user" active-icon="fa-user"></ons-tab>
-                <ons-tab page="tab2.html" label="Recipes" icon="fa-cutlery" active></ons-tab>
-                <ons-tab page="tab3.html" label="Grocery List" icon="fa-clipboard-list" active-icon="fa-clipboard-list"></ons-tab>
-            </ons-tabbar>
-        </ons-page>
-    </ons-navigator>
+    <header>
 
-    <template id="tab1.html">
-        <ons-page id="Tab1">
-            <div class="container">
+    </header>
 
+    <div class="container" id="mainContainer">
+
+        <!-- Recipe Search Form -->
+
+        <div class="row">
+            <div class="col-lg-12" id="searchForm">
+                <form>
+                    <input type="search" value="Pizza" id="search" placeholder="Search" class="search-input" style="width: 280px;">
+                    <select id="numResults" value="10">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                    <select class="select" id="cuisine" value="">
+                        <option value="">Any Cuisine</option>
+                        <option value="american">American</option>
+                        <option value="asian">Asian</option>
+                        <option value="barbecue">Barbecue</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="greek">Greek</option>
+                        <option value="hawaiian">Hawaiian</option>
+                        <option value="indian">Indian</option>
+                        <option value="italian">Italian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="thai">Thai</option>
+                        <option value="vietnamese">Vietnamese</option>
+                    </select>
+
+                    <select class="select" id="diet" value="">
+                        <option value="">Any Diet</option>
+                        <option value="386^Vegan">Vegan</option>
+                        <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
+                        <option value="390^Pescetarian">Pescetarian</option>
+                        <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
+                        <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
+                    </select>
+
+                    <select class="select" id="allergy" value="">
+                        <option value="">No Allergy</option>
+                        <option value="396^Dairy-Free">Dairy</option>
+                        <option value="397^Egg-Free">Egg</option>
+                        <option value="393^Gluten-Free">Gluten</option>
+                        <option value="394^Peanut-Free">Peanut</option>
+                        <option value="398^Seafood-Free">Seafood</option>
+                        <option value="399^Sesame-Free">Sesame</option>
+                        <option value="400^Soy-Free">Soy</option>
+                        <option value="395^Tree Nut-Free">Tree Nut</option>
+                        <option value="392^Wheat-Free">Wheat</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+                </form>
             </div>
-        </ons-page>
-    </template>
+        </div>
 
-    <template id="tab2.html">
-        <ons-page id="Tab2">
-            <p style="text-align: center; margin-top: 10px;">
+        <!-- Content -->
 
-                <input type="search" value="" id="search" placeholder="Search" class="search-input" style="width: 280px;">
-                <select id="numResults" value="10">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                <br>
+        <div class="row">
 
-                <select class="select" id="cuisine" value="">
-                    <option value="">Any Cuisine</option>
-                    <option value="american">American</option>
-                    <option value="asian">Asian</option>
-                    <option value="barbecue">Barbecue</option>
-                    <option value="chinese">Chinese</option>
-                    <option value="greek">Greek</option>
-                    <option value="hawaiian">Hawaiian</option>
-                    <option value="indian">Indian</option>
-                    <option value="italian">Italian</option>
-                    <option value="japanese">Japanese</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="thai">Thai</option>
-                    <option value="vietnamese">Vietnamese</option>
-                </select>
+            <!-- Search Results -->
+            <div class="col-lg-6" id="recipeList"></div>
 
-                <select class="select" id="diet" value="">
-                    <option value="">Any Diet</option>
-                    <option value="386^Vegan">Vegan</option>
-                    <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
-                    <option value="390^Pescetarian">Pescetarian</option>
-                    <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
-                    <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
-                </select>
+            <!-- Recipe Detail View -->
+            <div class="col-lg-6" id="recipeDetail"></div>
 
-                <select class="select" id="allergy" value="">
-                    <option value="">No Allergy</option>
-                    <option value="396^Dairy-Free">Dairy</option>
-                    <option value="397^Egg-Free">Egg</option>
-                    <option value="393^Gluten-Free">Gluten</option>
-                    <option value="394^Peanut-Free">Peanut</option>
-                    <option value="398^Seafood-Free">Seafood</option>
-                    <option value="399^Sesame-Free">Sesame</option>
-                    <option value="400^Soy-Free">Soy</option>
-                    <option value="395^Tree Nut-Free">Tree Nut</option>
-                    <option value="392^Wheat-Free">Wheat</option>
-                </select>
-            </p>
+        </div>
+    </div>
 
-            <div id="recipeList"></div>
-        </ons-page>
-    </template>
-
-    <template id="tab3.html">
-        <ons-page id="Tab3">
-            <div id="groceryList"></div><br>
-            <ons-button class="listButton" id="hideAll" disabled=true>Hide all</ons-button>
-            <ons-button class="listButton" id="clearGroceryList" disabled=true>Clear List</ons-button>
-        </ons-page>
-    </template>
-
-    <template id="page.html">
-        <ons-page id="page">
-            <ons-toolbar>
-                <div class="left">
-                    <ons-back-button>Back</ons-back-button>
-                </div>
-                <div class="center"></div>
-            </ons-toolbar>
-            <div id="holder"></div>
-        </ons-page>
-    </template>
-
-    <script src="./assets/javascript/user.js"></script>
+    <!-- Javascript -->
     <script src="./assets/javascript/groceryList.js"></script>
     <script src="./assets/javascript/app.js"></script>
+
 </body>
 
 </html>

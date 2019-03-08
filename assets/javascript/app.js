@@ -4,32 +4,12 @@
 var APP_KEY = "c6dea6bf830227615c86bf87458ee3a8";
 var APP_ID = "1280f0ef";
 var recipeArray = [];
-var selectedArray;
+var selectedArray = [];
 
 // ============================================================================================================================
 // Yummly APIs: Search Recipe API, Get Recipe API
 // Yummly API Documentation: https://developer.yummly.com/documentation
 // ============================================================================================================================
-
-// =========================
-// LOCAL STORAGE
-// =========================
-
-$(window).on("load", function () {
-
-    selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
-
-    if (selectedArray != null) {
-
-        function generate() {
-            for (var i = 0; i < selectedArray.length; i++) {
-                addToGroceryList(selectedArray[i]);
-            }
-        }
-
-        setTimeout(generate, 100);
-    }
-});
 
 // =========================
 // SEARCH RECIPE
@@ -50,29 +30,30 @@ $(document).on("input", "#search", function () {
     }, 500);
 });
 
-$(document).on("change", ".select", function () {
-    search();
-});
+$("#searchBtn").on("click", search);
 
+function search(event) {
 
-function search() {
+    event.preventDefault();
 
     // Clear search result list
 
     $("#recipeList").empty();
     recipeArray = [];
 
-    // Get search criteria
+    searchRecipes();
+};
 
+function searchRecipes() {
+
+    // Search Recipe URL Format: http://api.yummly.com/v1/api/recipes?_app_id=1280f0ef&_app_key=c6dea6bf830227615c86bf87458ee3a8&q=onion
+
+    // Get search criteria from form
     var searchLimit = $("#numResults").val();
     var searchTerm = $("#search").val().trim();
     var cuisine = $("#cuisine").val().trim();
     var diet = $("#diet").val();
     var allergy = $("#allergy").val();
-
-    // ======== SEARCH RECIPE API QUERY ========
-
-    // Search Recipe URL Format: http://api.yummly.com/v1/api/recipes?_app_id=1280f0ef&_app_key=c6dea6bf830227615c86bf87458ee3a8&q=onion
 
     var searchRecipeUrl = `https://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${APP_KEY}&maxResult=${searchLimit}&q=${searchTerm}&allowedCuisine[]=cuisine^cuisine-${cuisine}&allowedDiet[]=${diet}&allowedAllergy[]=${allergy}`;
 
@@ -81,41 +62,36 @@ function search() {
         method: "GET"
     })
         .then(function (response) {
-            //console.log(response);
+            
+            var recipe;
 
             for (var i = 0; i < searchLimit; i++) {
 
-                var recipe = {
-                    name: "",
-                    id: "",
-                    arrayId: "",
-                    ingredients: [],
-                    rating: "",
-                    smallImgUrl: "",
-                    source: "",
-                }
+                // Retrieve recipe from API response
+                recipe = response.matches[i];
 
-                recipe.name = response.matches[i].recipeName;
-                recipe.id = response.matches[i].id;
-                recipe.arrayId = i;
-                recipe.ingredients = response.matches[i].ingredients;
-                recipe.rating = response.matches[i].rating;
-                recipe.smallImgUrl = response.matches[i].smallImageUrls[0];
-
+                // Add each recipe result to Recipe Array
                 recipeArray.push(recipe);
 
-                var recipeDiv = $("<div>");
-                recipeDiv.addClass("recipeDiv");
-                recipeDiv.attr("data-arrayId", recipe.arrayId);
+                // Create a Div for each Recipe and store its attributes
+                var recipeDiv = $("<div>")
+                    .addClass("recipeDiv")
+                    .addClass("col-lg-6")
+                    .attr("id", i);
+
+                // Display recipe image and name in div
                 recipeDiv.html(
-                    `<img src=${recipe.smallImgUrl}> 
-                    <span>${recipe.name}</span>`
+                    `<img src=${recipe.smallImageUrls[0]}> 
+                    <span>${recipe.recipeName}</span>`
                 );
 
+                // Add recipe to the results list
                 $("#recipeList").append(recipeDiv);
             }
+
+            console.log(recipeArray);
         });
-};
+}
 
 // =========================
 // VIEW RECIPE DETAILS
@@ -123,17 +99,16 @@ function search() {
 
 //** Event for when user clicks on recipe in search results to view its DETAILS
 
-$(document).on("tap", ".recipeDiv", function () {
-    var getArrayId = $(this).attr("data-arrayId");
-    var selectedRecipe = recipeArray[getArrayId];
-
-    getRecipeDetail(getArrayId, selectedRecipe);
-
+$(document).on("click", ".recipeDiv", function () {
+    var id = $(this).attr("id");
+    $("#recipeDetail").empty();
+    showRecipeDetail(id);
 });
 
-function getRecipeDetail(getArrayId, selectedRecipe) {
+function showRecipeDetail(id) {
 
-    fn.pushPage({ 'id': 'page.html', 'title': 'Recipe Details' });
+    var $this = $(`#${id}`);
+    var selectedRecipe = recipeArray[id];
 
     // ======== GET RECIPE API QUERY ========
 
@@ -145,34 +120,7 @@ function getRecipeDetail(getArrayId, selectedRecipe) {
     })
         .then(function (response) {
 
-            //console.log(response);
-
-            // ======== MAKE THIS RECIPE BUTTON ========
-
-            // When recipe is opened, check if it is already in the ingredients list
-            selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
-
-            var makeThisRecipe = $("<div>");
-            var buttonText;
-
-            makeThisRecipe.addClass("makeThisRecipe");
-            makeThisRecipe.attr("data-arrayId", getArrayId);
-
-            buttonText = "Make this Recipe";
-            makeThisRecipe.attr("data-text", "make");
-
-            if (selectedArray != null) {
-                for (var i = 0; i < selectedArray.length; i++) {
-                    if (selectedRecipe.id == selectedArray[i].id) {
-                        buttonText = "Added to List";
-                        makeThisRecipe.attr("data-text", "added");
-                        makeThisRecipe.css("color", "blue");
-                        makeThisRecipe.css("background", "lightblue");
-                    }
-                }
-            }
-
-            makeThisRecipe.text(buttonText);
+            // makeThisRecipe.text(buttonText);
 
             // ======== LARGER IMAGE ========
 
@@ -183,7 +131,7 @@ function getRecipeDetail(getArrayId, selectedRecipe) {
             // ======== RECIPE NAME ========
 
             var recipeName = $("<div class='detail' id='detailTitle'>");
-            recipeName.html(`<h4>${selectedRecipe.name}</h4>`);
+            recipeName.html(`<h4>${selectedRecipe.recipeName}</h4>`);
 
             // ======== RATING ========
 
@@ -236,7 +184,6 @@ function getRecipeDetail(getArrayId, selectedRecipe) {
             var nutritionInfo = response.nutritionEstimates;
 
             var nutritionContainerDiv = $("<div class='detail'>");
-            nutritionContainerDiv.addClass("nutritionDiv");
 
             // Search Terms found in API result (attributes)
             var nutrientArray = ["FAT_KCAL", "SUGAR", "FIBTG", "CHOCDF",
@@ -279,16 +226,16 @@ function getRecipeDetail(getArrayId, selectedRecipe) {
             var recipeDetail = $("<div>");
             recipeDetail.addClass("recipeDetail");
 
-            recipeDetail.append(recipeName);
-            recipeDetail.append(sourceDiv);
-            recipeDetail.append(largeImg);
-            recipeDetail.append(rating);
-            recipeDetail.append(makeThisRecipe);
-            recipeDetail.append(servings);
-            recipeDetail.append(ingredients);
-            recipeDetail.append(nutritionContainerDiv);
+            recipeDetail
+                .append(recipeName)
+                .append(sourceDiv)
+                .append(largeImg)
+                .append(rating)
+                .append(servings)
+                .append(ingredients)
+                .append(nutritionContainerDiv);
 
-            $('#holder').append(recipeDetail);
+            $("#recipeDetail").append(recipeDetail);
         });
 }
 
@@ -298,7 +245,7 @@ function getRecipeDetail(getArrayId, selectedRecipe) {
 
 //** Event for when user clicks MAKE THIS RECIPE
 
-$(document).on("tap", ".makeThisRecipe", function () {
+$(document).on("click", ".makeThisRecipe", function () {
 
     var selected = $(this);
 
@@ -346,7 +293,7 @@ $(document).on("tap", ".makeThisRecipe", function () {
 // Google API Documentation: https://developers.google.com/custom-search/docs/overview
 // ============================================================================================================================
 
-$(document).on('tap', '#changeDisplayType', function (event) {
+$(document).on('click', '#changeDisplayType', function (event) {
 
     event.preventDefault();
 
@@ -437,9 +384,9 @@ function getText(recipe, recipeDiv) {
 }
 
 // Toggles whether or not a clipart image in grocery list is crossed out or not.
-// Called when user taps individual image in list.
+// Called when user clicks individual image in list.
 
-$(document).on('tap', '.clipart', function () {
+$(document).on('click', '.clipart', function () {
     let clipImg = $(this);
 
     if (clipImg.attr('data-x') == 'false') {
@@ -453,31 +400,3 @@ $(document).on('tap', '.clipart', function () {
         clipImg.attr('data-x', 'false');
     }
 });
-
-// ============================================================================================================================
-// Onsen UI    
-// ============================================================================================================================
-
-document.addEventListener('prechange', function (event) {
-    document.querySelector('ons-toolbar .center')
-        .innerHTML = event.tabItem.getAttribute('label');
-});
-
-// ============================================================================================================================
-// PushPage: View Recipe Details  
-// ============================================================================================================================
-
-window.fn = {};
-
-window.fn.pushPage = function (page, anim) {
-    if (anim) {
-
-        // document.querySelector('#myNavigator').pushPage('page2.html', {data: {title: 'Page 2'}});
-        document.getElementById('myNavigator').pushPage(page.id, { data: { title: page.title }, animation: anim });
-    }
-    else {
-
-        // page.querySelector('ons-toolbar .center').innerHTML = page.data.title;
-        document.getElementById('myNavigator').pushPage(page.id, { data: { title: page.title } });
-    }
-};
