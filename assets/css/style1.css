@@ -49,12 +49,34 @@ select {
 #search {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  margin-left: -5px;
   margin-top: 10px;
 }
 
 #searchBtn {
   float: right;
+}
+
+#searchForm {
+  margin-bottom: 20px;
+}
+
+#viewList {
+  float: right;
+  margin-right: 0px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-lg-6, 
+.col-lg-12,
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 /*************************/
@@ -114,6 +136,7 @@ img {
  }
 
 .recipeDetail {
+  border: 1px solid darkgray;
   max-height: 800px;
   overflow-y: scroll;
   padding: 20px;
@@ -123,10 +146,10 @@ img {
 .recipeDetailImg {
   border: 1px solid #666666;
   margin: 5px auto 5px auto;
+  width: 100%;
 }
 
 .recipeDetail h4 {
-  clear: both;
   font-size: 24px;
   font-weight: 700;
   margin-top: 10px;
