@@ -154,6 +154,7 @@ function showRecipeDetail(id) {
 
             var makeThisRecipe = $("<div>")
                 .addClass("makeThisRecipe")
+                .attr("data-recipeId", id)
                 .text("Make This Recipe");
 
             // ======== SERVINGS ========
@@ -263,7 +264,10 @@ function showRecipeDetail(id) {
 
 $(document).on("click", ".makeThisRecipe", function () {
 
-    var selected = $(this);
+    var $this = $(this);
+    var recipeId = $this.attr("data-recipeId");
+
+    addToGroceryList(recipeArray[recipeId]);
 
     // Get the ingredients from the selected recipe
 
@@ -274,32 +278,32 @@ $(document).on("click", ".makeThisRecipe", function () {
 
     // Toggle whether or not a particular recipe is selected or not
 
-    if (selected.attr("data-text") == "added") {
-        selected.text("Make This Recipe");
-        selected.css("color", "black");
-        selected.css("background", "none");
-        selected.attr("data-text", "make");
+    if ($this.attr("data-text") == "added") {
+        $this.text("Make This Recipe");
+        $this.css("color", "black");
+        $this.css("background", "none");
+        $this.attr("data-text", "make");
 
         removeFromGroceryList(selectedRecipe);
     }
     else {
-        selected.text("Added to List");
-        selected.css("color", "blue");
-        selected.css("background", "lightblue");
-        selected.attr("data-text", "added");
+        $this.text("Added to List");
+        $this.css("color", "blue");
+        $this.css("background", "lightblue");
+        $this.attr("data-text", "added");
 
         if (selectedArray == null) {
-            selectedRecipe.localStorageId = 0;
+            // selectedRecipe.localStorageId = 0;
             selectedArray = [selectedRecipe];
         }
         else {
-            selectedRecipe.localStorageId = selectedArray.length;
+            // selectedRecipe.localStorageId = selectedArray.length;
             selectedArray.push(selectedRecipe);
         }
 
         addToGroceryList(selectedRecipe);
 
-        localStorage.setItem("selectedArray", JSON.stringify(selectedArray));
+        // localStorage.setItem("selectedArray", JSON.stringify(selectedArray));
     }
 
 });
@@ -309,95 +313,95 @@ $(document).on("click", ".makeThisRecipe", function () {
 // Google API Documentation: https://developers.google.com/custom-search/docs/overview
 // ============================================================================================================================
 
-$(document).on('click', '#changeDisplayType', function (event) {
+// $(document).on('click', '#changeDisplayType', function (event) {
 
-    event.preventDefault();
+//     event.preventDefault();
 
-    // Used to target the ingredients' parent div (for appending thumbnail to them)
-    let recipeDiv = $(this).parent();
+//     // Used to target the ingredients' parent div (for appending thumbnail to them)
+//     let recipeDiv = $(this).parent();
 
-    let localStorageId = $(this).attr("data-localStorageId");
-    selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
+//     let localStorageId = $(this).attr("data-localStorageId");
+//     selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
 
-    let recipe = selectedArray[localStorageId];
+//     let recipe = selectedArray[localStorageId];
 
-    recipeDiv.empty();
+//     recipeDiv.empty();
 
-    // Key will be used to toggle between "View as Images" and "View as Text"
-    var key;
+//     // Key will be used to toggle between "View as Images" and "View as Text"
+//     var key;
 
-    if ($(this).attr("data-displayType") == "text") {
-        key = "images";
-        getClipArt(recipe, recipeDiv);
-    }
-    else {
-        key = "text";
-        getText(recipe, recipeDiv);
-    }
+//     if ($(this).attr("data-displayType") == "text") {
+//         key = "images";
+//         getClipArt(recipe, recipeDiv);
+//     }
+//     else {
+//         key = "text";
+//         getText(recipe, recipeDiv);
+//     }
 
-    // Create buttons
+//     // Create buttons
 
-    var imagesBtn = createImagesBtn(recipe, key);
-    var detailsBtn = createDetailsBtn(recipe);
-    var deleteBtn = createDeleteBtn(recipe);
+//     var imagesBtn = createImagesBtn(recipe, key);
+//     var detailsBtn = createDetailsBtn(recipe);
+//     var deleteBtn = createDeleteBtn(recipe);
 
-    recipeDiv.append(imagesBtn);
-    recipeDiv.append(detailsBtn);
-    recipeDiv.append(deleteBtn);
+//     recipeDiv.append(imagesBtn);
+//     recipeDiv.append(detailsBtn);
+//     recipeDiv.append(deleteBtn);
 
-    //console.log(recipeDiv);
+//     //console.log(recipeDiv);
 
-});
+// });
 
-// This function displays the ingredients in image format
+// // This function displays the ingredients in image format
 
-function getClipArt(recipe, recipeDiv) {
+// function getClipArt(recipe, recipeDiv) {
 
-    let ingrList = recipe.ingredients;
+//     let ingrList = recipe.ingredients;
 
-    let API_KEY = "AIzaSyDJ90SaiND0l5GJlYS-rAnWNcWFZIoDNL8";
+//     let API_KEY = "AIzaSyDJ90SaiND0l5GJlYS-rAnWNcWFZIoDNL8";
 
-    for (let i = 0; i < ingrList.length; i++) {
+//     for (let i = 0; i < ingrList.length; i++) {
 
-        let queryURL = `https://www.googleapis.com/customsearch/v1?q=${ingrList[i]}&cx=003819080641655921957%3A-osseiuyk9e&imgType=clipart&num=1&searchType=image&key=${API_KEY}`;
+//         let queryURL = `https://www.googleapis.com/customsearch/v1?q=${ingrList[i]}&cx=003819080641655921957%3A-osseiuyk9e&imgType=clipart&num=1&searchType=image&key=${API_KEY}`;
 
-        $.ajax({
-            url: queryURL,
-            method: "GET",
-        })
-            .then(function (response) {
+//         $.ajax({
+//             url: queryURL,
+//             method: "GET",
+//         })
+//             .then(function (response) {
 
-                let thumbnail = $('<img>');
-                thumbnail.attr('src', response.items[0].image.thumbnailLink);
-                thumbnail.attr('class', 'clipart');
-                thumbnail.attr('data-x', 'false');
+//                 let thumbnail = $('<img>');
+//                 thumbnail.attr('src', response.items[0].image.thumbnailLink);
+//                 thumbnail.attr('class', 'clipart');
+//                 thumbnail.attr('data-x', 'false');
 
-                thumbnail.css('height', '90px');
-                thumbnail.css('width', '85px');
-                thumbnail.css('margin', '10px');
+//                 thumbnail.css('height', '90px');
+//                 thumbnail.css('width', '85px');
+//                 thumbnail.css('margin', '10px');
 
-                recipeDiv.prepend(thumbnail);
-            });
-    }
-}
+//                 recipeDiv.prepend(thumbnail);
+//             });
+//     }
+// }
 
-// This function displays the ingredients in text format
+// // This function displays the ingredients in text format
 
-function getText(recipe, recipeDiv) {
-    var ingrList = recipe.ingredientLines;
+// function getText(recipe, recipeDiv) {
+//     var ingrList = recipe.ingredientLines;
 
-    for (var i = recipe.ingredients.length; i >= 0; i--) {
+//     for (var i = recipe.ingredients.length; i >= 0; i--) {
 
-        var ingr = $("<h5 style='text-align:left;'>");
-        ingr.html(ingrList[i]);
+//         var ingr = $("<h5 style='text-align:left;'>");
+//         ingr.html(ingrList[i]);
 
-        ingr.addClass("ingredient");
-        ingr.attr("data-crossed", "false");
+//         ingr.addClass("ingredient");
+//         ingr.attr("data-crossed", "false");
 
-        recipeDiv.prepend(ingr);
-    }
+//         recipeDiv.prepend(ingr);
+//     }
 
-}
+// }
 
 // Toggles whether or not a clipart image in grocery list is crossed out or not.
 // Called when user clicks individual image in list.

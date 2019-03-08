@@ -7,11 +7,10 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="content-script-type" content="text/javascript">
     <meta http-equiv="content-style-type" content="text/css">
-    
+
     <meta name="author" content="Curtis Yungen">
     <meta name="description" content="A simple recipe search and grocery list generator.">
-    <meta name="keywords"
-        content="Curtis Yungen, Grocery List, Javascript, Recipe, Yummly, API">
+    <meta name="keywords" content="Curtis Yungen, Grocery List, Javascript, Recipe, Yummly, API">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Grocery List</title>
@@ -21,9 +20,10 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    <script src="./assets/javascript/bootstrap.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
@@ -98,9 +98,9 @@
                         <option value="395^Tree Nut-Free">Tree Nut</option>
                         <option value="392^Wheat-Free">Wheat</option>
                     </select>
-                    
+
                     <!-- View List -->
-                    <button class="btn btn-dark" id="viewList">View List</button>
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#listModal" id="viewList">View List</button>
 
                     <!-- Search Button -->
                     <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
@@ -120,9 +120,34 @@
             <div class="col-lg-6" id="recipeDetail"></div>
 
         </div>
+
+        <!-- Grocery List Modal -->
+
+        <div id="listModal" class="modal fade" role="dialog">
+
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Grocery List</h4>
+                    </div>
+
+                    <!-- Grocery List Display -->
+                    <div class="modal-body" id="groceryList"></div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Javascript -->
+    
     <script src="./assets/javascript/groceryList.js"></script>
     <script src="./assets/javascript/app.js"></script>
 

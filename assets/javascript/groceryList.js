@@ -6,56 +6,61 @@
 // ADD items to Grocery List
 // ===============================
 
+var groceryList = [];
+
 // This function is called when user chooses SELECT from recipe search results page
 
 function addToGroceryList(recipe) {
 
-  //console.log(recipe);
+  if (recipe != "" && recipe != null && recipe != "undefined") {
 
-  if (recipe != "") {
-
-    $(".listButton").attr("disabled", false);
-
-    // Create expandable box
-    var onsListItem = $("<ons-list-item expandable style='border-bottom: 2px #086DE0 dashed;color: #086DE0;'>");
-    onsListItem.html(`<h4>${recipe.name}</h4><br>`);
-    onsListItem.attr("id", recipe.id);
-
-    var ingrList = $("<div>");
-    ingrList.addClass("expandable-content");
-
-    // Get list of ingredients and ingredientLines from recipe object
-    var ingredients = recipe.ingredients;
-    var ingredientLines = recipe.ingredientLines;
-
-    // Create a div for each separate ingredient and add it to container div
-    for (var i = 0; i < ingredients.length; i++) {
-
-      var ingr = $("<h5 style='text-align:left;'>");
-      ingr.html(ingredientLines[i]);
-
-      ingr.addClass("ingredient");
-      ingr.attr("data-crossed", "false");
-      
-      ingrList.append(ingr);
+    for (var item in recipe.ingredients) {
+      groceryList.push(recipe.ingredients[item]);
     }
 
-    // Create button to toggle between Image display and Text display
-    var displayTypeBtn = createImagesBtn(recipe, "text");
-    ingrList.append(displayTypeBtn);
-
-    // Create button to view Recipe Details
-    var detailsBtn = createDetailsBtn(recipe);
-    ingrList.append(detailsBtn);
-
-    // Create delete button
-    var deleteBtn = createDeleteBtn(recipe);
-    ingrList.append(deleteBtn);
-
-    onsListItem.append(ingrList);
-    $("#groceryList").append(onsListItem);
   }
+
+  // var ingrList = $("<div>");
+  // ingrList.addClass("expandable-content");
+
+  // // Get list of ingredients and ingredientLines from recipe object
+  // var ingredients = recipe.ingredients;
+  // var ingredientLines = recipe.ingredientLines;
+
+  // // Create a div for each separate ingredient and add it to container div
+  // for (var i = 0; i < ingredients.length; i++) {
+
+  //   var ingr = $("<h5 style='text-align:left;'>");
+  //   ingr.html(ingredientLines[i]);
+
+  //   ingr.addClass("ingredient");
+  //   ingr.attr("data-crossed", "false");
+    
+  //   ingrList.append(ingr);
+  // }
+
+  // // Create button to toggle between Image display and Text display
+  // var displayTypeBtn = createImagesBtn(recipe, "text");
+  // ingrList.append(displayTypeBtn);
+
+  // // Create button to view Recipe Details
+  // var detailsBtn = createDetailsBtn(recipe);
+  // ingrList.append(detailsBtn);
+
+  // // Create delete button
+  // var deleteBtn = createDeleteBtn(recipe);
+  // ingrList.append(deleteBtn);
+
+  // onsListItem.append(ingrList);
+  // $("#groceryList").append(onsListItem);
+  
 }
+
+$("#viewList").on("click", function() {
+  console.log(groceryList);
+
+  $("#listModal").modal("show");
+});
 
 // Creates button for toggling between Text and Image display for ingredient list
 
