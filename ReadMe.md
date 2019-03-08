@@ -17,4 +17,4 @@ This project is deployed on Github Pages. Take a look here: https://curtisyungen
 
 #### Image 1
 
-![Download Instructions](/download-instructions.png)
+![Download Instructions](/assets/images/download-instructions.png)
