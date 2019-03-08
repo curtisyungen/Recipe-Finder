@@ -40,6 +40,10 @@ span {
   max-width: 75%;
 }
 
+::-webkit-scrollbar { 
+  display: none; 
+}
+
 /* INDEX.HTML */
 
 #recipeList {
@@ -106,9 +110,7 @@ img {
   border: 1px solid blue;
 }
 
-/**********************/
-/* Recipe Detail View */
-/**********************/
+/* RECIPE DETAIL VIEW */
 
 .checked {
   color: gold;
@@ -124,6 +126,18 @@ img {
   margin: 0px 3px 0px 3px;
   padding: 5px;
  }
+
+.makeThisRecipe {
+  border: 1px solid black;
+  font-size: 13px;
+  line-height: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 200px;
+  padding: 5px;
+  text-align: center;
+  width: auto;
+}
 
 .recipeDetailImg {
   border: 1px solid #666666;

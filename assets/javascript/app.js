@@ -120,8 +120,6 @@ function showRecipeDetail(id) {
     })
         .then(function (response) {
 
-            // makeThisRecipe.text(buttonText);
-
             // ======== LARGER IMAGE ========
 
             var largeImg = $("<img>");
@@ -146,6 +144,12 @@ function showRecipeDetail(id) {
 
                 rating.append(star);
             }
+
+            // ======== MAKE THIS RECIPE BUTTON ========
+
+            var makeThisRecipe = $("<div>")
+                .addClass("makeThisRecipe")
+                .text("Make This Recipe");
 
             // ======== SERVINGS ========
 
@@ -231,6 +235,7 @@ function showRecipeDetail(id) {
                 .append(sourceDiv)
                 .append(largeImg)
                 .append(rating)
+                .append(makeThisRecipe)
                 .append(servings)
                 .append(ingredients)
                 .append(nutritionContainerDiv);
