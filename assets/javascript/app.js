@@ -120,6 +120,11 @@ function showRecipeDetail(id) {
     })
         .then(function (response) {
 
+            $(".recipeDetail")
+                .animate({
+                    opacity: 0
+                }, 200);
+
             // ======== LARGER IMAGE ========
 
             var largeImg = $("<img>");
@@ -240,7 +245,13 @@ function showRecipeDetail(id) {
                 .append(ingredients)
                 .append(nutritionContainerDiv);
 
-            $("#recipeDetail").append(recipeDetail);
+            $("#recipeDetail")
+                .append(recipeDetail);
+            
+            $(".recipeDetail")
+                .animate({
+                    opacity: 1
+                }, 500);
         });
 }
 
