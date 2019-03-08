@@ -19,12 +19,12 @@ var selectedArray = [];
 
 var timerId;
 
-$(document).on("input", "#search", function () {
+$(document).on("input", "#searchBox", function () {
 
     clearTimeout(timerId);
 
     timerId = setTimeout(function() {
-        if ($("#search").val() != "") {
+        if ($("#searchBox").val() != "") {
             search();
         }
     }, 500);
@@ -50,7 +50,7 @@ function searchRecipes() {
 
     // Get search criteria from form
     var searchLimit = $("#numResults").val();
-    var searchTerm = $("#search").val().trim();
+    var searchTerm = $("#searchBox").val().trim();
     var cuisine = $("#cuisine").val().trim();
     var diet = $("#diet").val();
     var allergy = $("#allergy").val();

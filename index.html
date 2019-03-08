@@ -7,11 +7,13 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="content-script-type" content="text/javascript">
     <meta http-equiv="content-style-type" content="text/css">
+    
     <meta name="author" content="Curtis Yungen">
-    <meta name="description" content="">
+    <meta name="description" content="A simple recipe search and grocery list generator.">
     <meta name="keywords"
-        content="Curtis Yungen, Grocery List, Javascript, Onsen, Recipe Search, Yummly">
+        content="Curtis Yungen, Grocery List, Javascript, Recipe, Yummly, API">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Grocery List</title>
 
     <!-- Reset CSS -->
@@ -22,11 +24,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-    <!-- Onsen UI CDN-->
-    <!-- <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script> -->
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
@@ -49,7 +46,11 @@
         <div class="row">
             <div class="col-lg-12" id="searchForm">
                 <form>
-                    <input type="search" value="Pizza" id="search" placeholder="Search" class="search-input" style="width: 280px;">
+
+                    <!-- Search Box -->
+                    <input type="search" value="Pizza" placeholder="Search" class="search-input" id="searchBox">
+
+                    <!-- Number of Results -->
                     <select id="numResults" value="10">
                         <option value="10">10</option>
                         <option value="25">25</option>
@@ -57,6 +58,7 @@
                         <option value="100">100</option>
                     </select>
 
+                    <!-- Cuisine -->
                     <select class="select" id="cuisine" value="">
                         <option value="">Any Cuisine</option>
                         <option value="american">American</option>
@@ -73,6 +75,7 @@
                         <option value="vietnamese">Vietnamese</option>
                     </select>
 
+                    <!-- Diet -->
                     <select class="select" id="diet" value="">
                         <option value="">Any Diet</option>
                         <option value="386^Vegan">Vegan</option>
@@ -82,6 +85,7 @@
                         <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
                     </select>
 
+                    <!-- Allergy -->
                     <select class="select" id="allergy" value="">
                         <option value="">No Allergy</option>
                         <option value="396^Dairy-Free">Dairy</option>
@@ -95,9 +99,12 @@
                         <option value="392^Wheat-Free">Wheat</option>
                     </select>
                     
+                    <!-- View List -->
                     <button class="btn btn-dark" id="viewList">View List</button>
+
+                    <!-- Search Button -->
                     <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
-                    
+
                 </form>
             </div>
         </div>

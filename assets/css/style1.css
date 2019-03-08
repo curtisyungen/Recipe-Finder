@@ -1,55 +1,55 @@
+/* BOOTSTRAP ELEMENTS */
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-lg-6 {
+  max-width: 90%;
+}
+
+.col-lg-6, 
+.col-lg-12,
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .row {
   width: 100%;
 }
 
-/**************/
-/* index.html */
-/**************/
+/* HTML ELEMENTS */
 
-select {
-  background-color: rgba(3,3,3,.09);
-  border: none;
-  border-radius: 5.5px;
-  box-shadow: none;
-  min-height: 20px;
-  margin-top: 5px;
+button {
+  border: 1px solid #cfcfcf;
+  float: left;
+  font-size: 14px;
+  height: auto;
+  line-height: 12px;
+  margin: 5px;
+  margin-top: 0px;
+  padding: 5px;
 }
 
-.height {
-  padding: 2% 0em;
+span {
+  float: left;
+  max-width: 75%;
 }
 
-.intro {
-  text-align: center;
-  padding: 0 20px;
-  margin-top: 40px;
-}
-
-#numResults {
-  background-color: rgba(3,3,3,.09);
-  border: none;
-  border-left: 1px solid #cfcfcf;
-  border-radius: 5.5px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  box-shadow: none;
-  height: 28px;
-  margin-left: -5px;
-  margin-top: 10px;
-}
+/* INDEX.HTML */
 
 #recipeList {
   display: inline-block;
+  max-height: 800px;
+  overflow-y: scroll;
 }
 
 #recipeDetail {
   display: inline-block;
-}
-
-#search {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  margin-top: 10px;
 }
 
 #searchBtn {
@@ -65,29 +65,14 @@ select {
   margin-right: 0px;
 }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.col-lg-6, 
-.col-lg-12,
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-/*************************/
-/* Recipe Search Results */
-/*************************/
+/* RECIPE SEARCH RESULTS */
 
 img {
   float: left;
   margin-right: 3px;
 }
 
+/* Recipe Name */
 .recipeDiv span {
   max-height: 68px;
   max-width: 65%;
@@ -187,99 +172,5 @@ img {
 #sourceDiv {
   text-align: center;
   width: 100%;
-}
-
-/****************/
-/* Grocery List */
-/****************/
-
-button {
-  border: 1px solid #cfcfcf;
-  float: left;
-  font-size: 14px;
-  height: auto;
-  line-height: 12px;
-  margin: 5px;
-  margin-top: 10px;
-  padding: 5px;
-}
-
-span {
-  float: left;
-  max-width: 75%;
-}
-
-.center {
-  padding-left: 10px;
-}
-
-.deleteBtn {
-  color: rgb(179, 0, 0);
-  float: right;
-}
-
-.expandable-content {
-  border-top: 2px #086DE0 dashed;
-  padding-left: 10px;
-}
-
-.ingredientList {
-  background: #f8f8f8;
-  border: 1px solid #cfcfcf;
-  border-left: 0px;
-  border-right: 0px;
-  font-size: 16px;
-  font-weight: 700;
-  margin: 5px 0px 0px 0px;
-  padding: 10px;
-}
-
-.ingredient {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 16px;
-  margin-left: 15px;
-  padding: 10px;
-}
-
-.listButton {
-  display: inherit;
-  margin-top: 5px;
-}
-
-.list-item {
-  padding: 0px;
-}
-
-.list-item--expandable {
-  background-image: none;
-}
-
-#clearGroceryList {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#changeDisplayType {
-  clear: both;
-}
-
-#viewDetails {
-  clear: both;
-}
-
-/****************/
-/* Support Page */
-/****************/
-
-#plea {
-  font-size: 24px;
-  margin: 0;
-  padding: 20px;
-}
-
-#qrCode {
-  border: 1px solid black;
-  margin-bottom: 25px;
 }
 
