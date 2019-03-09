@@ -190,22 +190,22 @@ function showRecipeDetail(id) {
 
             // ======== MAKE THIS RECIPE BUTTON ========
 
-            var buttonClass = "makeThisRecipe";
+            var buttonClass = "btn btn-primary btn-sm";
             var buttonText = "Make This Recipe";
 
             // Check if recipe is already in Grocery List by searching for its ID in Selected Array
             for (var item in selectedArray) {
                 if (selectedArray[item].id == selectedRecipe.id) {
-                    buttonClass = "addedToList";
+                    buttonClass = "btn btn-success btn-sm";
                     buttonText = "Added to List";
                 }
             }
 
             var makeThisRecipe = $("<div>")
+                .addClass("makeThisRecipeBtn")
                 .addClass(buttonClass)
                 .attr("data-recipeArrayIdx", id)
                 .text(buttonText);
-
 
             // ======== SERVINGS ========
 
@@ -317,7 +317,7 @@ function showRecipeDetail(id) {
 
 //** Event for when user clicks MAKE THIS RECIPE
 
-$(document).on("click", ".makeThisRecipe", function () {
+$(document).on("click", ".makeThisRecipeBtn", function () {
 
     var $this = $(this);
 
@@ -330,8 +330,8 @@ $(document).on("click", ".makeThisRecipe", function () {
 
     // Update class to toggle make/add button
     $(this)
-        .removeClass("makeThisRecipe")
-        .addClass("addedToList")
+        .removeClass("btn btn-primary")
+        .addClass("btn btn-success")
         .text("Added to List");
 
     // Toggle whether or not a particular recipe is selected or not

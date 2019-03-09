@@ -213,28 +213,10 @@ img {
   padding: 5px;
  }
 
-.makeThisRecipe,
-.addedToList {
-  border: 1px solid black;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 22px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 130px;
-  padding: 5px;
-  text-align: center;
-  width: auto;
-}
-
-.makeThisRecipe:hover {
-  background: rgb(212, 243, 253);
-}
-
-.addedToList {
-  background: lightblue;
-  color: blue;
+.makeThisRecipeBtn {
+  margin-top: -10px;
+  position: absolute;
+  right: 20px;
 }
 
 .recipeDetailImg {
