@@ -42,6 +42,7 @@ button {
 }
 
 select {
+  font-size: 14px;
   height: 30px;
 }
 
@@ -80,7 +81,7 @@ span {
   background: rgb(230, 230, 230);
   border: 1px solid black;
   height: 30px;
-  margin-left: -100px;
+  margin-left: 15px;
   margin-right: 1px;
   padding: 0px 8px;
   width: 400px;
@@ -96,7 +97,7 @@ span {
 
 #viewList {
   float: right;
-  margin-right: 0px;
+  margin-right: 92px;
 }
 
 /* RECIPE SEARCH RESULTS */
