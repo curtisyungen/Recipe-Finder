@@ -87,8 +87,11 @@ span {
   width: 400px;
 }
 
-#searchBtn {
+#searchBtn,
+#viewList {
   float: right;
+  height: 25;
+  padding: 3px 10px;
 }
 
 #searchForm {
@@ -96,7 +99,6 @@ span {
 }
 
 #viewList {
-  float: right;
   margin-right: 92px;
 }
 
