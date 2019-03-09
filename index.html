@@ -20,13 +20,13 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
-    <script src="./assets/javascript/bootstrap.js"></script>
-    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script> -->
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- jQuery -->
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -109,6 +109,29 @@
             </div>
         </div>
 
+        <!-- Grocery List Modal -->
+
+        <div id="listModal" class="modal" role="dialog">
+
+                <div class="modal-dialog">
+                    <div class="modal-content">
+    
+                        <div class="modal-header">
+                            <h4 class="modal-title">Grocery List</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+    
+                        <!-- Grocery List Display -->
+                        <div class="modal-body" id="groceryList"></div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
         <!-- Content -->
 
         <div class="row">
@@ -121,33 +144,10 @@
 
         </div>
 
-        <!-- Grocery List Modal -->
-
-        <div id="listModal" class="modal fade" role="dialog">
-
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Grocery List</h4>
-                    </div>
-
-                    <!-- Grocery List Display -->
-                    <div class="modal-body" id="groceryList"></div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <!-- Javascript -->
-    
+    <script src="./assets/javascript/bootstrap.js"></script>
     <script src="./assets/javascript/groceryList.js"></script>
     <script src="./assets/javascript/app.js"></script>
 

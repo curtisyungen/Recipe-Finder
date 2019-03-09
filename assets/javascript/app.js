@@ -154,7 +154,7 @@ function showRecipeDetail(id) {
 
             var makeThisRecipe = $("<div>")
                 .addClass("makeThisRecipe")
-                .attr("data-recipeId", id)
+                .attr("data-recipeArrayIdx", id)
                 .text("Make This Recipe");
 
             // ======== SERVINGS ========
@@ -265,19 +265,15 @@ function showRecipeDetail(id) {
 $(document).on("click", ".makeThisRecipe", function () {
 
     var $this = $(this);
-    var recipeId = $this.attr("data-recipeId");
 
-    addToGroceryList(recipeArray[recipeId]);
+    // Get index of selected recipe in recipe array
+    // This allows us to get its attributes
+    var recipeArrayIdx = $this.attr("data-recipeArrayIdx");
 
-    // Get the ingredients from the selected recipe
-
-    var getArrayId = $(this).attr("data-arrayId");
-    var selectedRecipe = recipeArray[getArrayId];
-
-    //console.log(selectedRecipe);
+    // Identify the recipe that was selected and store in variable
+    var selectedRecipe = recipeArray[recipeArrayIdx];
 
     // Toggle whether or not a particular recipe is selected or not
-
     if ($this.attr("data-text") == "added") {
         $this.text("Make This Recipe");
         $this.css("color", "black");
@@ -292,15 +288,10 @@ $(document).on("click", ".makeThisRecipe", function () {
         $this.css("background", "lightblue");
         $this.attr("data-text", "added");
 
-        if (selectedArray == null) {
-            // selectedRecipe.localStorageId = 0;
-            selectedArray = [selectedRecipe];
-        }
-        else {
-            // selectedRecipe.localStorageId = selectedArray.length;
-            selectedArray.push(selectedRecipe);
-        }
+        // Push selected recipe to Selected Array
+        selectedArray.push(selectedRecipe);
 
+        // Add selected recipe to grocery list
         addToGroceryList(selectedRecipe);
 
         // localStorage.setItem("selectedArray", JSON.stringify(selectedArray));
