@@ -6,9 +6,10 @@ var APP_ID = "1280f0ef";
 var recipeArray = [];
 var selectedArray = [];
 
-var cuisine;
-var diet;
-var allergy;
+var searchLimit = 15;
+var cuisine = "";
+var diet = "";
+var allergy = "";
 
 // ============================================================================================================================
 // Yummly APIs: Search Recipe API, Get Recipe API
@@ -50,6 +51,7 @@ $("#searchBtn").on("click", function(event) {
 $(document).on("click", ".select", setFilter);
 
 function setFilter() {
+    searchLimit = $("#numResults").val() || "";
     cuisine = $("#cuisine").val() || "";
     diet = $("#diet").val() || "";
     allergy = $("#allergy").val() || "";
@@ -58,16 +60,17 @@ function setFilter() {
 // EXECUTE SEARCH
 // =========================
 
+// Search Recipe URL Format: http://api.yummly.com/v1/api/recipes?_app_id=1280f0ef&_app_key=c6dea6bf830227615c86bf87458ee3a8&q=onion
+
 function searchRecipes() {
 
-    // Search Recipe URL Format: http://api.yummly.com/v1/api/recipes?_app_id=1280f0ef&_app_key=c6dea6bf830227615c86bf87458ee3a8&q=onion
-
-    // Get search criteria from form
-    var searchLimit = $("#numResults").val();
+    // Get search term
     var searchTerm = $("#searchBox").val().trim();
 
+    // Compile search URL
     var searchRecipeUrl = `https://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${APP_KEY}&maxResult=${searchLimit}&q=${searchTerm}&allowedCuisine[]=cuisine^cuisine-${cuisine}&allowedDiet[]=${diet}&allowedAllergy[]=${allergy}`;
 
+    // Execute Ajax request to find recipes
     $.ajax({
         url: searchRecipeUrl,
         method: "GET"
