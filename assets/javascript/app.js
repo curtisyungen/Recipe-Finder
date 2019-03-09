@@ -50,7 +50,7 @@ $("#searchBtn").on("click", function (event) {
     }
 
     else {
-        $("#recipeList").animate({
+        $("#recipeList, #recipeDetail").animate({
             opacity: 0
         }, 200);
     }
@@ -336,9 +336,11 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
     // Update class to toggle make/add button
     if ($this.attr("data-status") == "added") {
 
+        // Remove this recipe from Selected Array
         var index = $this.attr("data-selectedArrIdx");
         selectedArray.splice(index, 1);
         
+        // Update button classes and attributes
         $this
             .removeClass("btn btn-success")
             .addClass("btn btn-primary")
@@ -354,6 +356,7 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
         // Push selected recipe to Selected Array
         selectedArray.push(selectedRecipe);
 
+        // Update button classes and attributes
         $this
             .removeClass("btn btn-primary")
             .addClass("btn btn-success")

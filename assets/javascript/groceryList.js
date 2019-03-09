@@ -216,15 +216,15 @@ function removeFromGroceryList(recipe) {
   var length = gList.children().length; 
   var index = -1; 
   
+  // Find recipe in grocery list and store its index
   for (var i=0; i<length; i++) {
 
     if (gList.children()[i].dataset.id == recipe.id) {
-      
       index = i;
-      console.log(index);
     }
   }
 
+  // Delete recipe div from grocery list
   gList.children()[index].remove();
 }
 
