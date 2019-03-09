@@ -100,8 +100,15 @@ function searchRecipes() {
 //** Event for when user clicks on recipe in search results to view its DETAILS
 
 $(document).on("click", ".recipeDiv", function () {
+
     var id = $(this).attr("id");
+
     $("#recipeDetail").empty();
+
+    $("#recipeDetail").animate({
+        opacity: 1
+    }, 100);
+
     showRecipeDetail(id);
 });
 

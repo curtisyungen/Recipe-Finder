@@ -24,6 +24,12 @@
 
 /* HTML ELEMENTS */
 
+body {
+  background-image: url("../images/leaves.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
 button {
   border: 1px solid #cfcfcf;
   float: left;
@@ -48,7 +54,7 @@ span {
 
 #recipeList {
   display: inline-block;
-  height: 800px;
+  height: 700px;
   overflow-y: scroll;
 }
 
@@ -57,8 +63,10 @@ span {
 }
 
 #recipeDetail {
-  background: rgb(240, 239, 239);
-  height: 800px;
+  background: white;
+  border: 1px solid darkgray;
+  max-height: 700px;
+  opacity: 0;
   overflow-y: scroll;
   padding: 20px;
   text-align: left;
@@ -84,14 +92,8 @@ img {
   margin-right: 3px;
 }
 
-/* Recipe Name */
-.recipeDiv span {
-  max-height: 68px;
-  overflow: hidden;
-  text-overflow: hidden;
-}
-
 .recipeDiv {
+  background: white;
   border: 1px solid #555555;
   font-size: 14px;
   height: 68px;
@@ -101,6 +103,13 @@ img {
   padding: 3px;
   text-align: left;  
   width: 100%;
+}
+
+/* Recipe Name */
+.recipeDiv span {
+  max-height: 68px;
+  overflow: hidden;
+  text-overflow: hidden;
 }
 
 .recipeDiv:hover {
@@ -190,7 +199,7 @@ img {
 /* GROCERY LIST */
 
 .ingrList {
-  background: lightgray;
+  background: rgb(248, 248, 248);
   border: 1px solid darkgray;
   font-size: 16px;
   line-height: 20px;
