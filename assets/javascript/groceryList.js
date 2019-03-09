@@ -10,6 +10,8 @@ var groceryList = [];
 var ingrList;
 var ingrListText;
 var showHideBtn;
+var viewRecipeBtn;
+var deleteBtn;
 
 // This function is called when user chooses SELECT from recipe search results page
 
@@ -40,6 +42,17 @@ function addToGroceryList(recipe) {
 
     // Store number of items in list for later height calculation
     ingrListText.attr("data-numItems", recipe.ingredients.length);
+
+    // Create buttons
+    viewRecipeBtn = $("<div>")
+      .addClass("viewRecipeBtn")
+      .addClass("btn btn-info btn-sm")
+      .text("View Recipe");
+
+    deleteBtn = $("<div>")
+      .addClass("deleteBtn")
+      .addClass("btn btn-danger btn-sm")
+      .text("Delete");
 
     showHideBtn = $("<div>").addClass("fas fa-angle-down fa-2x showHideBtn");
 
@@ -179,30 +192,6 @@ function createImagesBtn(recipe, key) {
   return displayBtn;
 }
 
-// Creates button for accessing Recipe Detail View from Grocery List
-
-function createDetailsBtn(recipe) {
-
-  var detailsButton = $("<button>");
-  detailsButton.text("View Details");
-  detailsButton.addClass("viewDetails");
-  detailsButton.attr("id", recipe.id);
-
-  return detailsButton;
-}
-
-// Creates button for deleting individual recipe from Grocery List
-
-function createDeleteBtn(recipe) {
-
-  var deleteButton = $("<button>");
-  deleteButton.text("Delete");
-  deleteButton.addClass("deleteBtn");
-  deleteButton.attr("id", recipe.id);
-
-  return deleteButton;
-}
-
 // ===============================
 // REMOVE Recipe from Grocery List
 // ===============================
@@ -317,22 +306,13 @@ function callGetRecipeDetails() {
 $(document).on("click", ".deleteBtn", function (event) {
   event.preventDefault();
 
-  selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
-  var localStorageId;
+  var $this = $(this);
 
-  for (var i = 0; i < selectedArray.length; i++) {
-    if ($(this).attr("id") == selectedArray[i].id) {
-      localStorageId = i;
-    }
-  }
-
-  var deleteRecipe = selectedArray[localStorageId];
+  var recipeId = $this.parent().parent().id;
+  console.log(gList);
+  return;
 
   removeFromGroceryList(deleteRecipe);
-
-  if ($("#groceryList").children().length == 0) {
-    $(".listButton").attr("disabled", true);
-  }
 
 });
 

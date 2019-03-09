@@ -39,6 +39,7 @@ $("#searchBtn").on("click", function (event) {
     $("#recipeList").empty();
     recipeArray = [];
 
+    // If search box isn't empty, run search for recipes
     if ($("#searchBox").val() != "" && $("#searchBox").val() != null) {
 
         searchRecipes();
@@ -49,6 +50,7 @@ $("#searchBtn").on("click", function (event) {
             }, 500);
     }
 
+    // If search box is empty and Search is clicked, hide Results and Detail view
     else {
         $("#recipeList, #recipeDetail").animate({
             opacity: 0

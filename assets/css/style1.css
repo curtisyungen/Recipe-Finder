@@ -213,6 +213,15 @@ img {
   padding: 5px;
  }
 
+.deleteBtn {
+  float: right;
+}
+
+.viewRecipeBtn {
+  float: right;
+  margin-right: 5px;
+}
+
 .makeThisRecipeBtn {
   margin-top: -10px;
   position: absolute;
@@ -291,5 +300,13 @@ img {
   margin-top: -12px;
   position: absolute;
   right: 25px;
+}
+
+#groceryList h4 {
+  font-size: 16px;
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
