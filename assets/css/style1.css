@@ -106,7 +106,7 @@ span {
   border: 1px solid black;
   border-radius: 17.5px;
   height: 35px;
-  margin-left: 15px;
+  margin-left: 30px;
   margin-right: 1px;
   padding: 0px 8px;
   width: 350px;
@@ -126,7 +126,7 @@ span {
 }
 
 #viewList {
-  margin-right: 92px;
+  margin-right: 80px;
 }
 
 /* RECIPE SEARCH RESULTS */
