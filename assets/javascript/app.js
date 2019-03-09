@@ -192,12 +192,14 @@ function showRecipeDetail(id) {
 
             var buttonClass = "btn btn-primary btn-sm";
             var buttonText = "Make This Recipe";
+            var buttonStatus = "make";
 
             // Check if recipe is already in Grocery List by searching for its ID in Selected Array
             for (var item in selectedArray) {
                 if (selectedArray[item].id == selectedRecipe.id) {
                     buttonClass = "btn btn-success btn-sm";
                     buttonText = "Added to List";
+                    buttonStatus = "added";
                 }
             }
 
@@ -205,6 +207,7 @@ function showRecipeDetail(id) {
                 .addClass("makeThisRecipeBtn")
                 .addClass(buttonClass)
                 .attr("data-recipeArrayIdx", id)
+                .attr("data-status", buttonStatus)
                 .text(buttonText);
 
             // ======== SERVINGS ========
@@ -329,19 +332,35 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
     var selectedRecipe = recipeArray[recipeArrayIdx];
 
     // Update class to toggle make/add button
-    $(this)
-        .removeClass("btn btn-primary")
-        .addClass("btn btn-success")
-        .text("Added to List");
+    if ($this.attr("data-status") == "added") {
 
-    // Toggle whether or not a particular recipe is selected or not
-    if ($this.attr("data-text") == "added") {
+        $this
+            .removeClass("btn btn-success")
+            .addClass("btn btn-primary")
+            .attr("data-status", "make")
+            .attr("data-selectedArrayIdx", "-1")
+            .text("Make This Recipe");
 
-        removeFromGroceryList(selectedRecipe);
+        var index = $this.attr("data-selectedArrIdx");
+        selectedArray.splice(index, 1);
+
+        console.log(selectedArray);
+
+        // removeFromGroceryList(selectedRecipe);
     }
-    else {
+    else if ($this.attr("data-status") == "make") {
+
         // Push selected recipe to Selected Array
         selectedArray.push(selectedRecipe);
+
+        console.log(selectedArray);
+
+        $this
+            .removeClass("btn btn-primary")
+            .addClass("btn btn-success")
+            .attr("data-status", "added")
+            .attr("data-selectedArrIdx", selectedArray.length-1)
+            .text("Added to List");
 
         // Add selected recipe to grocery list
         addToGroceryList(selectedRecipe);
