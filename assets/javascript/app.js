@@ -17,15 +17,15 @@ var allergy = "";
 
 // Included this so user won't see choppy loading of background image
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    setTimeout(function() {
+    setTimeout(function () {
         $("#introContainer").animate({
             opacity: 0
         }, 2500);
     }, 1300);
 
-    setTimeout(function() {
+    setTimeout(function () {
         $("#introContainer").hide();
     }, 4000);
 });
@@ -39,7 +39,7 @@ $(document).ready(function() {
 // SEARCH RECIPE
 // =========================
 
-$("#searchBtn").on("click", function(event) {
+$("#searchBtn").on("click", function (event) {
     event.preventDefault();
 
     // Clear search result list
@@ -52,9 +52,9 @@ $("#searchBtn").on("click", function(event) {
         searchRecipes();
 
         $("#recipeList")
-        .animate({
-            opacity: 1
-        }, 500);
+            .animate({
+                opacity: 1
+            }, 500);
     }
 
     else {
@@ -86,44 +86,47 @@ function searchRecipes() {
     // Get search term
     var searchTerm = $("#searchBox").val().trim();
 
-    // Compile search URL
-    var searchRecipeUrl = `https://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${APP_KEY}&maxResult=${searchLimit}&q=${searchTerm}&allowedCuisine[]=cuisine^cuisine-${cuisine}&allowedDiet[]=${diet}&allowedAllergy[]=${allergy}`;
+    if (searchTerm != "" && searchTerm != null) {
 
-    // Execute Ajax request to find recipes
-    $.ajax({
-        url: searchRecipeUrl,
-        method: "GET"
-    })
-        .then(function (response) {
-            
-            var recipe;
+        // Compile search URL
+        var searchRecipeUrl = `https://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${APP_KEY}&maxResult=${searchLimit}&q=${searchTerm}&allowedCuisine[]=cuisine^cuisine-${cuisine}&allowedDiet[]=${diet}&allowedAllergy[]=${allergy}`;
 
-            for (var i = 0; i < searchLimit; i++) {
+        // Execute Ajax request to find recipes
+        $.ajax({
+            url: searchRecipeUrl,
+            method: "GET"
+        })
+            .then(function (response) {
 
-                // Retrieve recipe from API response
-                recipe = response.matches[i];
+                var recipe;
 
-                // Add each recipe result to Recipe Array
-                recipeArray.push(recipe);
+                for (var i = 0; i < searchLimit; i++) {
 
-                // Create a Div for each Recipe and store its attributes
-                var recipeDiv = $("<div>")
-                    .addClass("recipeDiv")
-                    .addClass("col-lg-6")
-                    .attr("id", i);
+                    // Retrieve recipe from API response
+                    recipe = response.matches[i];
 
-                // Display recipe image and name in div
-                recipeDiv.html(
-                    `<img src=${recipe.smallImageUrls[0]}> 
+                    // Add each recipe result to Recipe Array
+                    recipeArray.push(recipe);
+
+                    // Create a Div for each Recipe and store its attributes
+                    var recipeDiv = $("<div>")
+                        .addClass("recipeDiv")
+                        .addClass("col-lg-6")
+                        .attr("id", i);
+
+                    // Display recipe image and name in div
+                    recipeDiv.html(
+                        `<img src=${recipe.smallImageUrls[0]}> 
                     <span>${recipe.recipeName}</span>`
-                );
+                    );
 
-                // Add recipe to the results list
-                $("#recipeList").append(recipeDiv);
-            }
+                    // Add recipe to the results list
+                    $("#recipeList").append(recipeDiv);
+                }
 
-            console.log(recipeArray);
-        });
+                //console.log(recipeArray);
+            });
+    }
 }
 
 // =========================
@@ -288,7 +291,7 @@ function showRecipeDetail(id) {
 
             $("#recipeDetail")
                 .append(recipeDetail);
-            
+
             $(".recipeDetail")
                 .animate({
                     opacity: 1
