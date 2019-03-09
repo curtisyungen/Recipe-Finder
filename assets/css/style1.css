@@ -75,6 +75,7 @@ span {
   width: 100%;
 } */
 
+/* Fade in Background Image */
 @-webkit-keyframes fade-in {
   0%   { opacity: 0; }
   100% { opacity: 1; }
@@ -101,7 +102,7 @@ span {
   -webkit-animation-duration: 1s;
   -webkit-animation-timing-function: ease-in;
   -webkit-animation-iteration-count: 1;
-  -webkit-animation-delay: 2s;
+  -webkit-animation-delay: 1.5s;
 }
 
 #backgroundContainer.visible {
@@ -135,7 +136,7 @@ span {
 #searchBox {
   background: rgb(230, 230, 230);
   border: 1px solid black;
-  border-radius: 17.5px;
+  border-radius: 5px;
   height: 35px;
   margin-left: 30px;
   margin-right: 1px;
@@ -212,8 +213,11 @@ img {
   padding: 5px;
  }
 
-.makeThisRecipe {
+.makeThisRecipe,
+.addedToList {
   border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 13px;
   line-height: 22px;
   margin-left: auto;
@@ -222,6 +226,15 @@ img {
   padding: 5px;
   text-align: center;
   width: auto;
+}
+
+.makeThisRecipe:hover {
+  background: rgb(212, 243, 253);
+}
+
+.addedToList {
+  background: lightblue;
+  color: blue;
 }
 
 .recipeDetailImg {

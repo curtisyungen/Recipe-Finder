@@ -12,11 +12,10 @@ var diet = "";
 var allergy = "";
 
 // =========================
-// INTRO SCREEN
+// FADE IN BACKGROUND IMAGE
 // =========================
 
 // Included this so user won't see choppy loading of background image
-
 $(document).ready(function() {
     $("#backgroundContainer").on('webkitAnimationEnd', function(e) {
         $(this).addClass('visible');
@@ -143,7 +142,6 @@ $(document).on("click", ".recipeDiv", function () {
 
 function showRecipeDetail(id) {
 
-    var $this = $(`#${id}`);
     var selectedRecipe = recipeArray[id];
 
     // ======== GET RECIPE API QUERY ========
@@ -161,16 +159,19 @@ function showRecipeDetail(id) {
                     opacity: 0
                 }, 200);
 
+
             // ======== LARGER IMAGE ========
 
             var largeImg = $("<img>");
             largeImg.addClass("recipeDetailImg");
             largeImg.attr("src", response.images[0].hostedLargeUrl);
 
+
             // ======== RECIPE NAME ========
 
             var recipeName = $("<div class='detail' id='detailTitle'>");
             recipeName.html(`<h4>${selectedRecipe.recipeName}</h4>`);
+
 
             // ======== RATING ========
 
@@ -186,18 +187,32 @@ function showRecipeDetail(id) {
                 rating.append(star);
             }
 
+
             // ======== MAKE THIS RECIPE BUTTON ========
 
+            var buttonClass = "makeThisRecipe";
+            var buttonText = "Make This Recipe";
+
+            // Check if recipe is already in Grocery List by searching for its ID in Selected Array
+            for (var item in selectedArray) {
+                if (selectedArray[item].id == selectedRecipe.id) {
+                    buttonClass = "addedToList";
+                    buttonText = "Added to List";
+                }
+            }
+
             var makeThisRecipe = $("<div>")
-                .addClass("makeThisRecipe")
+                .addClass(buttonClass)
                 .attr("data-recipeArrayIdx", id)
-                .text("Make This Recipe");
+                .text(buttonText);
+
 
             // ======== SERVINGS ========
 
             selectedRecipe.servings = response.numberOfServings;
             var servings = $("<div class='detail'>");
             servings.html(`<h4 class='title'>Servings</h4> ${selectedRecipe.servings}`);
+
 
             // ======== INGREDIENTS ========
 
@@ -212,6 +227,7 @@ function showRecipeDetail(id) {
 
             selectedRecipe.ingredientLines = response.ingredientLines;
 
+
             // ======== SOURCE INFO ========
 
             var sourceDiv = $("<div id='sourceDiv'>");
@@ -224,6 +240,7 @@ function showRecipeDetail(id) {
             sourceDiv.append(source);
 
             selectedRecipe.source = response.source.sourceRecipeUrl;
+
 
             // ======== NUTRITION INFO ========
 
@@ -267,6 +284,7 @@ function showRecipeDetail(id) {
             perServing.text("Values shown are per serving");
             nutritionContainerDiv.append(perServing);
 
+
             // ======== CREATE RECIPE DETAIL WINDOW ========
 
             var recipeDetail = $("<div>");
@@ -285,6 +303,7 @@ function showRecipeDetail(id) {
             $("#recipeDetail")
                 .append(recipeDetail);
 
+            // Fade in recipe detail window
             $(".recipeDetail")
                 .animate({
                     opacity: 1
@@ -309,21 +328,18 @@ $(document).on("click", ".makeThisRecipe", function () {
     // Identify the recipe that was selected and store in variable
     var selectedRecipe = recipeArray[recipeArrayIdx];
 
+    // Update class to toggle make/add button
+    $(this)
+        .removeClass("makeThisRecipe")
+        .addClass("addedToList")
+        .text("Added to List");
+
     // Toggle whether or not a particular recipe is selected or not
     if ($this.attr("data-text") == "added") {
-        $this.text("Make This Recipe");
-        $this.css("color", "black");
-        $this.css("background", "none");
-        $this.attr("data-text", "make");
 
         removeFromGroceryList(selectedRecipe);
     }
     else {
-        $this.text("Added to List");
-        $this.css("color", "blue");
-        $this.css("background", "lightblue");
-        $this.attr("data-text", "added");
-
         // Push selected recipe to Selected Array
         selectedArray.push(selectedRecipe);
 
