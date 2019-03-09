@@ -211,19 +211,21 @@ function createDeleteBtn(recipe) {
 
 function removeFromGroceryList(recipe) {
 
-  //console.log(recipe);
+  // var selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
+  var gList = $("#groceryList");
+  var length = gList.children().length; 
+  var index = -1; 
+  
+  for (var i=0; i<length; i++) {
 
-  var selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
-
-  for (var i = 0; i < selectedArray.length; i++) {
-    if (selectedArray[i].id == recipe.id) {
-      selectedArray[i] = "";
+    if (gList.children()[i].dataset.id == recipe.id) {
+      
+      index = i;
+      console.log(index);
     }
   }
 
-  localStorage.setItem("selectedArray", JSON.stringify(selectedArray));
-
-  $(`#${recipe.id}`).remove();
+  gList.children()[index].remove();
 }
 
 // ===============================

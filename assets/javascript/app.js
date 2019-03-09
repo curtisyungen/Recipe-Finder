@@ -203,12 +203,14 @@ function showRecipeDetail(id) {
                 }
             }
 
+            // Create Make This Recipe button
             var makeThisRecipe = $("<div>")
                 .addClass("makeThisRecipeBtn")
                 .addClass(buttonClass)
                 .attr("data-recipeArrayIdx", id)
                 .attr("data-status", buttonStatus)
                 .text(buttonText);
+
 
             // ======== SERVINGS ========
 
@@ -334,6 +336,9 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
     // Update class to toggle make/add button
     if ($this.attr("data-status") == "added") {
 
+        var index = $this.attr("data-selectedArrIdx");
+        selectedArray.splice(index, 1);
+        
         $this
             .removeClass("btn btn-success")
             .addClass("btn btn-primary")
@@ -341,19 +346,13 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
             .attr("data-selectedArrayIdx", "-1")
             .text("Make This Recipe");
 
-        var index = $this.attr("data-selectedArrIdx");
-        selectedArray.splice(index, 1);
-
-        console.log(selectedArray);
-
-        // removeFromGroceryList(selectedRecipe);
+        // Remove this recipe from grocery list
+        removeFromGroceryList(selectedRecipe);
     }
     else if ($this.attr("data-status") == "make") {
 
         // Push selected recipe to Selected Array
         selectedArray.push(selectedRecipe);
-
-        console.log(selectedArray);
 
         $this
             .removeClass("btn btn-primary")
