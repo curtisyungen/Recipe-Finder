@@ -48,7 +48,7 @@
                 <form>
 
                     <!-- Search Box -->
-                    <input type="search" value="" placeholder="Search" class="search-input" id="searchBox">
+                    <input type="search" value="" placeholder="Search" class="search-input" id="searchBox" autocomplete="off">
 
                     <!-- Number of Results -->
                     <select id="numResults" value="10">
@@ -58,54 +58,79 @@
                         <option value="100">100</option>
                     </select>
 
-                    <!-- Cuisine -->
-                    <select class="select" id="cuisine" value="">
-                        <option value="">Any Cuisine</option>
-                        <option value="american">American</option>
-                        <option value="asian">Asian</option>
-                        <option value="barbecue">Barbecue</option>
-                        <option value="chinese">Chinese</option>
-                        <option value="greek">Greek</option>
-                        <option value="hawaiian">Hawaiian</option>
-                        <option value="indian">Indian</option>
-                        <option value="italian">Italian</option>
-                        <option value="japanese">Japanese</option>
-                        <option value="mexican">Mexican</option>
-                        <option value="thai">Thai</option>
-                        <option value="vietnamese">Vietnamese</option>
-                    </select>
-
-                    <!-- Diet -->
-                    <select class="select" id="diet" value="">
-                        <option value="">Any Diet</option>
-                        <option value="386^Vegan">Vegan</option>
-                        <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
-                        <option value="390^Pescetarian">Pescetarian</option>
-                        <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
-                        <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
-                    </select>
-
-                    <!-- Allergy -->
-                    <select class="select" id="allergy" value="">
-                        <option value="">No Allergy</option>
-                        <option value="396^Dairy-Free">Dairy</option>
-                        <option value="397^Egg-Free">Egg</option>
-                        <option value="393^Gluten-Free">Gluten</option>
-                        <option value="394^Peanut-Free">Peanut</option>
-                        <option value="398^Seafood-Free">Seafood</option>
-                        <option value="399^Sesame-Free">Sesame</option>
-                        <option value="400^Soy-Free">Soy</option>
-                        <option value="395^Tree Nut-Free">Tree Nut</option>
-                        <option value="392^Wheat-Free">Wheat</option>
-                    </select>
-
                     <!-- View List -->
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#listModal" id="viewList">View List</button>
 
                     <!-- Search Button -->
                     <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
 
+                    <!-- Filters Button -->
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#filtersModal" id="filterBtn">Filters</button>
+
                 </form>
+            </div>
+        </div>
+
+        <!-- Filters Modal -->
+
+        <div id="filtersModal" class="modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Search Filters</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                        
+                        <!-- Cuisine -->
+                        <select class="select" id="cuisine" value="">
+                                <option value="">Any Cuisine</option>
+                                <option value="american">American</option>
+                                <option value="asian">Asian</option>
+                                <option value="barbecue">Barbecue</option>
+                                <option value="chinese">Chinese</option>
+                                <option value="greek">Greek</option>
+                                <option value="hawaiian">Hawaiian</option>
+                                <option value="indian">Indian</option>
+                                <option value="italian">Italian</option>
+                                <option value="japanese">Japanese</option>
+                                <option value="mexican">Mexican</option>
+                                <option value="thai">Thai</option>
+                                <option value="vietnamese">Vietnamese</option>
+                            </select>
+        
+                            <!-- Diet -->
+                            <select class="select" id="diet" value="">
+                                <option value="">Any Diet</option>
+                                <option value="386^Vegan">Vegan</option>
+                                <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
+                                <option value="390^Pescetarian">Pescetarian</option>
+                                <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
+                                <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
+                            </select>
+        
+                            <!-- Allergy -->
+                            <select class="select" id="allergy" value="">
+                                <option value="">No Allergy</option>
+                                <option value="396^Dairy-Free">Dairy</option>
+                                <option value="397^Egg-Free">Egg</option>
+                                <option value="393^Gluten-Free">Gluten</option>
+                                <option value="394^Peanut-Free">Peanut</option>
+                                <option value="398^Seafood-Free">Seafood</option>
+                                <option value="399^Sesame-Free">Sesame</option>
+                                <option value="400^Soy-Free">Soy</option>
+                                <option value="395^Tree Nut-Free">Tree Nut</option>
+                                <option value="392^Wheat-Free">Wheat</option>
+                            </select>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -125,7 +150,7 @@
                         <div class="modal-body" id="groceryList"></div>
     
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="filterSubmit">Close</button>
                         </div>
     
                     </div>
@@ -137,14 +162,20 @@
         <div class="row">
 
             <!-- Search Results -->
-            <div class="col-lg-5" id="recipeList"></div>
+            <div class="col-lg-3" id="recipeList"></div>
 
             <!-- Recipe Detail View -->
-            <div class="col-lg-6" id="recipeDetail"></div>
+            <div class="col-lg-3" id="recipeDetail"></div>
 
         </div>
 
-    </div>
+        <div>
+            <div id="footer">
+                Footer
+            </div>
+        </div>
+
+    </div>    
 
     <!-- Javascript -->
     <script src="./assets/javascript/bootstrap.js"></script>

@@ -6,6 +6,10 @@ var APP_ID = "1280f0ef";
 var recipeArray = [];
 var selectedArray = [];
 
+var cuisine;
+var diet;
+var allergy;
+
 // ============================================================================================================================
 // Yummly APIs: Search Recipe API, Get Recipe API
 // Yummly API Documentation: https://developer.yummly.com/documentation
@@ -15,25 +19,7 @@ var selectedArray = [];
 // SEARCH RECIPE
 // =========================
 
-//** Event for when user searches for recipe
-
-var timerId;
-
-$(document).on("input", "#searchBox", function () {
-
-    clearTimeout(timerId);
-
-    timerId = setTimeout(function() {
-        if ($("#searchBox").val() != "") {
-            search();
-        }
-    }, 500);
-});
-
-$("#searchBtn").on("click", search);
-
-function search(event) {
-
+$("#searchBtn").on("click", function(event) {
     event.preventDefault();
 
     // Clear search result list
@@ -41,8 +27,36 @@ function search(event) {
     $("#recipeList").empty();
     recipeArray = [];
 
-    searchRecipes();
-};
+    if ($("#searchBox").val() != "" && $("#searchBox").val() != null) {
+
+        searchRecipes();
+
+        $("#recipeList")
+        .animate({
+            opacity: 1
+        }, 500);
+    }
+
+    else {
+        $("#recipeList").animate({
+            opacity: 0
+        }, 200);
+    }
+});
+
+// APPLY FILTERS
+// =========================
+
+$(document).on("click", ".select", setFilter);
+
+function setFilter() {
+    cuisine = $("#cuisine").val() || "";
+    diet = $("#diet").val() || "";
+    allergy = $("#allergy").val() || "";
+}
+
+// EXECUTE SEARCH
+// =========================
 
 function searchRecipes() {
 
@@ -51,9 +65,6 @@ function searchRecipes() {
     // Get search criteria from form
     var searchLimit = $("#numResults").val();
     var searchTerm = $("#searchBox").val().trim();
-    var cuisine = $("#cuisine").val().trim();
-    var diet = $("#diet").val();
-    var allergy = $("#allergy").val();
 
     var searchRecipeUrl = `https://api.yummly.com/v1/api/recipes?_app_id=${APP_ID}&_app_key=${APP_KEY}&maxResult=${searchLimit}&q=${searchTerm}&allowedCuisine[]=cuisine^cuisine-${cuisine}&allowedDiet[]=${diet}&allowedAllergy[]=${allergy}`;
 
