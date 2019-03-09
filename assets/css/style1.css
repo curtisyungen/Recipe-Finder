@@ -26,9 +26,6 @@
 /* HTML ELEMENTS */
 
 body {
-  background: url("../images/leaves.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
   max-height: 100%;
   z-index: 1;
 }
@@ -78,17 +75,37 @@ span {
   width: 100%;
 } */
 
-#introContainer {
-  background: white;
+@-webkit-keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#backgroundContainer {
+  background-image: url("../images/leaves.jpg");
+  background-repeat: no-repeat;
   bottom: 0;
   left: 0;
   margin: 0px;
-  opacity: 1;
+  opacity: 0;
   padding: 0px;
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 99;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  -webkit-animation-name: fade-in;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 2s;
+}
+
+#backgroundContainer.visible {
+  opacity: 1;
 }
 
 #recipeList {

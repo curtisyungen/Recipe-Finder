@@ -17,17 +17,10 @@ var allergy = "";
 
 // Included this so user won't see choppy loading of background image
 
-$(document).ready(function () {
-
-    setTimeout(function () {
-        $("#introContainer").animate({
-            opacity: 0
-        }, 2500);
-    }, 1300);
-
-    setTimeout(function () {
-        $("#introContainer").hide();
-    }, 4000);
+$(document).ready(function() {
+    $("#backgroundContainer").on('webkitAnimationEnd', function(e) {
+        $(this).addClass('visible');
+    });
 });
 
 // ============================================================================================================================
