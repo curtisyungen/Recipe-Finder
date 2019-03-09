@@ -1,7 +1,3 @@
-// ============================================================================================================================
-// GROCERY LIST
-// ============================================================================================================================
-
 // ===============================
 // ADD items to Grocery List
 // ===============================
@@ -102,6 +98,36 @@ function addToGroceryList(recipe) {
 
 }
 
+// ===============================
+// REMOVE Recipe from Grocery List
+// ===============================
+
+// This function is called when user chooses to deselct recipe using button in Recipe Detail View
+
+function removeFromGroceryList(recipe) {
+
+  // var selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
+  var gList = $("#groceryList");
+  var length = gList.children().length; 
+  var index = -1; 
+  
+  // Find recipe in grocery list and store its index
+  for (var i=0; i<length; i++) {
+
+    if (gList.children()[i].dataset.id == recipe.id) {
+      index = i;
+    }
+  }
+
+  // Delete recipe div from grocery list
+  gList.children()[index].remove();
+}
+
+
+// ===============================
+// EXPAND / COLLAPSE ITEMS IN LIST
+// ===============================
+
 $(document).on("click", ".showHideBtn", showHideList);
 
 function showHideList() {
@@ -164,57 +190,6 @@ function showHideList() {
     // Update attribute to show div is collapsed
     targetList.attr("data-status", "closed");
   }
-}
-
-// Creates button for toggling between Text and Image display for ingredient list
-
-function createImagesBtn(recipe, key) {
-
-  // Create View as Images button
-
-  var displayBtn = $("<button>");
-  var buttonText;
-
-  if (key == "text") {
-    buttonText = "View as Images";
-    displayBtn.attr("data-displayType", "text");
-  }
-  else {
-    buttonText = "View as Text";
-    displayBtn.attr("data-displayType", "images");
-  }
-
-  displayBtn.text(buttonText);
-  displayBtn.attr("id", "changeDisplayType");
-  displayBtn.attr("data-localStorageId", recipe.localStorageId);
-  //console.log(button);
-
-  return displayBtn;
-}
-
-// ===============================
-// REMOVE Recipe from Grocery List
-// ===============================
-
-// This function is called when user chooses to deselct recipe using button in Recipe Detail View
-
-function removeFromGroceryList(recipe) {
-
-  // var selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
-  var gList = $("#groceryList");
-  var length = gList.children().length; 
-  var index = -1; 
-  
-  // Find recipe in grocery list and store its index
-  for (var i=0; i<length; i++) {
-
-    if (gList.children()[i].dataset.id == recipe.id) {
-      index = i;
-    }
-  }
-
-  // Delete recipe div from grocery list
-  gList.children()[index].remove();
 }
 
 // ===============================

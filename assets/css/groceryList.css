@@ -1,0 +1,33 @@
+/* GROCERY LIST */
+
+.ingrList {
+background: rgb(248, 248, 248);
+border: 1px solid darkgray;
+font-size: 16px;
+line-height: 20px;
+height: 50px;
+margin-bottom: 5px;
+padding: 20px 5px;
+}
+
+.ingrList h4 {
+font-size: 16px;
+margin-top: -10px;
+max-width: 350px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.ingrListText {
+display: none;
+max-height: 300px;
+opacity: 0;
+overflow-y: scroll;
+}
+
+.showHideBtn {
+margin-top: -12px;
+position: absolute;
+right: 25px;
+}
