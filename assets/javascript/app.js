@@ -11,6 +11,25 @@ var cuisine = "";
 var diet = "";
 var allergy = "";
 
+// =========================
+// INTRO SCREEN
+// =========================
+
+// Included this so user won't see choppy loading of background image
+
+$(document).ready(function() {
+
+    setTimeout(function() {
+        $("#introContainer").animate({
+            opacity: 0
+        }, 2500);
+    }, 1300);
+
+    setTimeout(function() {
+        $("#introContainer").hide();
+    }, 4000);
+});
+
 // ============================================================================================================================
 // Yummly APIs: Search Recipe API, Get Recipe API
 // Yummly API Documentation: https://developer.yummly.com/documentation
