@@ -41,6 +41,10 @@ button {
   padding: 5px;
 }
 
+select {
+  height: 30px;
+}
+
 span {
   float: left;
   max-width: 75%;
@@ -70,6 +74,16 @@ span {
   overflow-y: scroll;
   padding: 20px;
   text-align: left;
+}
+
+#searchBox {
+  background: rgb(230, 230, 230);
+  border: 1px solid black;
+  height: 30px;
+  margin-left: -100px;
+  margin-right: 1px;
+  padding: 0px 8px;
+  width: 400px;
 }
 
 #searchBtn {
