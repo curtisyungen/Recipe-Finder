@@ -82,7 +82,7 @@ span {
 }
 
 #backgroundContainer {
-  background-image: url("../images/leaves.jpg");
+  background: url("../images/leaves.jpg");
   background-repeat: no-repeat;
   bottom: 0;
   left: 0;
