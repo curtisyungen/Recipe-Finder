@@ -1,0 +1,52 @@
+@media screen and (max-width: 960px) {
+
+    #backgroundContainer {
+        height: 110vh;
+        width: 110vw;
+    }
+
+    #recipeDetail {
+        border: 1px solid darkgray;
+        margin-left: 20px;
+        max-height: 350px;
+    }
+
+    #recipeList {
+        border: 1px solid darkgray;
+        margin-bottom: 15px;
+        margin-left: 20px;
+        margin-top: 75px;
+        max-height: 350px;
+    }
+
+    #searchBox {
+        margin-bottom: 5px;
+        margin-left: 5px;
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    #searchForm {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+        position: absolute;
+    }
+
+    #viewList {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 640px) {
+
+}
+
+@media screen and (max-width: 420px) {
+
+}
+

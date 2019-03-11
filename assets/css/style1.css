@@ -25,11 +25,6 @@ width: 100%;
 
 /* HTML ELEMENTS */
 
-body {
-max-height: 100%;
-z-index: 1;
-}
-
 button {
 border: 1px solid #cfcfcf;
 float: left;
