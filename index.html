@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/media-queries.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- jQuery -->
@@ -46,28 +46,38 @@
     <!-- Background Container -->
     <div class="container col-lg-12" id="backgroundContainer"></div>
 
-    <!-- Main Container -->
-    <div class="container" id="mainContainer">
-
-        <!-- Recipe Search Form -->
+    <!-- Search Container -->
+    <div class="container" id="searchContainer">
 
         <div class="row">
-            <div class="col-lg-10 offset-1" id="searchForm">
+
+            <!-- Recipe Search Form -->
+
+            <div class="col-lg-12" id="searchForm">
                 <form>
 
-                    <!-- Search Box -->
-                    <input type="search" value="" placeholder="Search for a Recipe" class="search-input" id="searchBox" autocomplete="off">
+                    <!-- Search Input Box -->
+                    <input type="search" value="" placeholder="Search for a Recipe" class="search-input" id="searchBox"
+                        autocomplete="off">
 
-                    <!-- View List -->
-                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#listModal" id="viewList">View List</button>
+                    <!-- Menu Buttons -->
+                    <div id="buttons">
 
-                    <!-- Search Button -->
-                    <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+                        <!-- Filters Button -->
+                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#filtersModal"
+                            id="filterBtn">Filters</button>
 
-                    <!-- Filters Button -->
-                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#filtersModal" id="filterBtn">Filters</button>
+                        <!-- Search Button -->
+                        <button type="submit" class="btn btn-primary" id="searchBtn">Search</button>
+
+                        <!-- View List -->
+                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#listModal"
+                            id="viewList">View List</button>
+
+                    </div>
 
                 </form>
+
             </div>
         </div>
 
@@ -91,52 +101,51 @@
                             <option value="50">50</option>
                             <option value="100">100</option>
                         </select>
-                        
+
                         <!-- Cuisine -->
                         <select class="select" id="cuisine" value="">
-                                <option value="">Any Cuisine</option>
-                                <option value="american">American</option>
-                                <option value="asian">Asian</option>
-                                <option value="barbecue">Barbecue</option>
-                                <option value="chinese">Chinese</option>
-                                <option value="greek">Greek</option>
-                                <option value="hawaiian">Hawaiian</option>
-                                <option value="indian">Indian</option>
-                                <option value="italian">Italian</option>
-                                <option value="japanese">Japanese</option>
-                                <option value="mexican">Mexican</option>
-                                <option value="thai">Thai</option>
-                                <option value="vietnamese">Vietnamese</option>
-                            </select>
-        
-                            <!-- Diet -->
-                            <select class="select" id="diet" value="">
-                                <option value="">Any Diet</option>
-                                <option value="386^Vegan">Vegan</option>
-                                <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
-                                <option value="390^Pescetarian">Pescetarian</option>
-                                <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
-                                <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
-                            </select>
-        
-                            <!-- Allergy -->
-                            <select class="select" id="allergy" value="">
-                                <option value="">No Allergy</option>
-                                <option value="396^Dairy-Free">Dairy</option>
-                                <option value="397^Egg-Free">Egg</option>
-                                <option value="393^Gluten-Free">Gluten</option>
-                                <option value="394^Peanut-Free">Peanut</option>
-                                <option value="398^Seafood-Free">Seafood</option>
-                                <option value="399^Sesame-Free">Sesame</option>
-                                <option value="400^Soy-Free">Soy</option>
-                                <option value="395^Tree Nut-Free">Tree Nut</option>
-                                <option value="392^Wheat-Free">Wheat</option>
-                            </select>
-                        </div>
+                            <option value="">Any Cuisine</option>
+                            <option value="american">American</option>
+                            <option value="asian">Asian</option>
+                            <option value="barbecue">Barbecue</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="greek">Greek</option>
+                            <option value="hawaiian">Hawaiian</option>
+                            <option value="indian">Indian</option>
+                            <option value="italian">Italian</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="thai">Thai</option>
+                            <option value="vietnamese">Vietnamese</option>
+                        </select>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
+                        <!-- Diet -->
+                        <select class="select" id="diet" value="">
+                            <option value="">Any Diet</option>
+                            <option value="386^Vegan">Vegan</option>
+                            <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
+                            <option value="390^Pescetarian">Pescetarian</option>
+                            <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
+                            <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
+                        </select>
+
+                        <!-- Allergy -->
+                        <select class="select" id="allergy" value="">
+                            <option value="">No Allergy</option>
+                            <option value="396^Dairy-Free">Dairy</option>
+                            <option value="397^Egg-Free">Egg</option>
+                            <option value="393^Gluten-Free">Gluten</option>
+                            <option value="394^Peanut-Free">Peanut</option>
+                            <option value="398^Seafood-Free">Seafood</option>
+                            <option value="399^Sesame-Free">Sesame</option>
+                            <option value="400^Soy-Free">Soy</option>
+                            <option value="395^Tree Nut-Free">Tree Nut</option>
+                            <option value="392^Wheat-Free">Wheat</option>
+                        </select>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -146,46 +155,49 @@
 
         <div id="listModal" class="modal" role="dialog">
 
-                <div class="modal-dialog">
-                    <div class="modal-content">
-    
-                        <div class="modal-header">
-                            <h4 class="modal-title">Grocery List</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-    
-                        <!-- Grocery List Display -->
-                        <div class="modal-body" id="groceryList"></div>
-    
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal" id="filterSubmit">Close</button>
-                        </div>
-    
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Grocery List</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
+
+                    <!-- Grocery List Display -->
+                    <div class="modal-body" id="groceryList"></div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"
+                            id="filterSubmit">Close</button>
+                    </div>
+
                 </div>
             </div>
+        </div>
+    </div>
 
-        <!-- Content -->
+    <!-- Content Container -->
 
-        <div class="row">
+    <div class="container" id="contentContainer">
+
+        <div class="row" id="contentRow">
 
             <!-- Search Results -->
-            <div class="col-lg-3" id="recipeList"></div>
+            <div class="col-lg-4" id="recipeList"></div>
 
             <!-- Recipe Detail View -->
-            <div class="col-lg-3" id="recipeDetail"></div>
+            <div class="col-lg-4" id="recipeDetail"></div>
 
         </div>
+    </div>
 
-        <!-- Footer -->
+    <!-- Footer -->
 
-        <!-- <div>
+    <!-- <div>
             <div id="footer">
                 Footer
             </div>
         </div> -->
-
-    </div>    
 
     <!-- Javascript -->
     <script src="./assets/javascript/bootstrap.js"></script>
