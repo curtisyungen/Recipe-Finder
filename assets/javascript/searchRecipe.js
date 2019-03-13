@@ -31,7 +31,7 @@ $("#searchBtn").on("click", function (event) {
 
         $("#recipeList")
             .animate({
-                opacity: 1
+                opacity: 0.90
             }, 500);
     }
 

@@ -6,41 +6,42 @@
     border-top: 0px;
     border-bottom: 0px;
     display: inline-block;
-    max-height: calc(100vh - 50px);
+    height: calc(100vh - 55px);
+    opacity: 0.9;
     overflow-y: scroll;
     z-index: 99;
 }
 
 .ingrList {
-background: rgb(248, 248, 248);
-border: 1px solid darkgray;
-border-left: 0px;
-border-right: 0px;
-font-size: 16px;
-line-height: 20px;
-height: 50px;
-margin-bottom: 5px;
-padding: 20px 5px;
+    background: rgb(248, 248, 248);
+    border: 1px solid darkgray;
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 50px;
+    margin-bottom: 5px;
+    padding: 20px 5px;
 }
 
 .ingrList h4 {
-font-size: 16px;
-margin-top: -10px;
-max-width: 350px;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
+    font-size: 16px;
+    margin-top: -10px;
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .ingrListText {
-display: none;
-max-height: 300px;
-opacity: 0;
-overflow-y: scroll;
+    display: none;
+    max-height: 300px;
+    opacity: 0;
+    overflow-y: scroll;
 }
 
 .showHideBtn {
-margin-top: -12px;
-position: absolute;
-right: 25px;
+    margin-top: -12px;
+    position: absolute;
+    right: 25px;
 }

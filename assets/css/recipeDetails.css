@@ -72,7 +72,7 @@ margin-top: 15px;
 #recipeDetail {
 background: white;
 border: 1px solid darkgray;
-max-height: calc(100vh - 50px);
+height: calc(100vh - 55px);
 opacity: 0;
 overflow-y: scroll;
 padding: 20px;

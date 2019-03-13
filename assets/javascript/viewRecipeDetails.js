@@ -12,7 +12,7 @@ $(document).on("click", ".recipeDiv", function () {
     $("#recipeDetail").empty();
 
     $("#recipeDetail").animate({
-        opacity: 1
+        opacity: 0.90
     }, 100);
 
     showRecipeDetail(id);
