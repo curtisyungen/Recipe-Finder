@@ -16,11 +16,11 @@ var allergy = "";
 // =========================
 
 // Included this so user won't see choppy loading of background image
-$(document).ready(function() {
-    $("#backgroundContainer").on('webkitAnimationEnd', function(e) {
-        $(this).addClass('visible');
-    });
-});
+// $(document).ready(function() {
+//     $("#backgroundContainer").on('webkitAnimationEnd', function(e) {
+//         $(this).addClass('visible');
+//     });
+// });
 
 // ============================================================================================================================
 // Google Images API
