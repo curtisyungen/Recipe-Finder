@@ -36,8 +36,7 @@ border: 1px solid blue;
 #recipeList {
 border: 1px solid darkgray;
 display: inline-block;
-/* margin-left: 350px; */
-margin-top: 20px;
+margin-left: 200px;
 max-height: 640px;
 opacity: 0;
 overflow-y: scroll;

@@ -100,6 +100,7 @@ span {
 /* NAVBAR */
 
 .navbar {
+    margin-bottom: 100px;
     z-index: 99;
 }
 
