@@ -74,10 +74,10 @@ span {
     width: 100%;
     z-index: 1;
 
-    -webkit-background-size: cover;
+    /* -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
 
     /* -webkit-animation-name: fade-in;
     -webkit-animation-duration: 1s;
