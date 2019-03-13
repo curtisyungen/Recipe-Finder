@@ -53,29 +53,11 @@ display: none;
 
 /* INDEX.HTML */
 
-/* #footer {
-background: rgb(32, 32, 32);
-bottom: 0;
-color: white;
-font-size: 16px;
-height: 50px;
-left: 0;
-line-height: 16px;
-padding: 10px;
-position: absolute;
-text-align: center;
-width: 100%;
-} */
-
 /* Fade in Background Image */
 /* @-webkit-keyframes fade-in {
 0%   { opacity: 0; }
 100% { opacity: 1; }
 } */
-
-.navbar {
-    z-index: 99;
-}
 
 #backgroundContainer {
     background: url("../images/leaves.jpg");
@@ -107,11 +89,6 @@ width: 100%;
     opacity: 1;
 }
 
-#buttons {
-    float: right;
-}
-
-#searchContainer,
 #contentContainer {
     margin-left: 0px;
     margin-right: 0px;
@@ -119,7 +96,15 @@ width: 100%;
     padding-right: 0px;
 }
 
+/* NAVBAR */
+
+.navbar {
+    z-index: 99;
+}
+
 #searchInputBox {
+    margin-left: 300px;
+    width: 400px;
     /* width: 600px; */
 }
 
