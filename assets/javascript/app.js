@@ -6,11 +6,6 @@ var APP_ID = "1280f0ef";
 var recipeArray = [];
 var selectedArray = [];
 
-var searchLimit = 15;
-var cuisine = "";
-var diet = "";
-var allergy = "";
-
 // =========================
 // FADE IN BACKGROUND IMAGE
 // =========================

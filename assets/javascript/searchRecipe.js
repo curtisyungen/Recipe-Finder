@@ -1,3 +1,12 @@
+// =========================
+// GLOBALS
+// =========================
+
+var searchLimit = 15;
+var cuisine = "";
+var diet = "";
+var allergy = "";
+
 // ============================================================================================================================
 // Yummly APIs: Search Recipe API, Get Recipe API
 // Yummly API Documentation: https://developer.yummly.com/documentation
@@ -18,7 +27,7 @@ $("#searchBtn").on("click", function (event) {
     // If search box isn't empty, run search for recipes
     if ($("#searchInputBox").val() != "" && $("#searchInputBox").val() != null) {
 
-        searchRecipes();
+        searchRecipes(searchLimit, cuisine, diet, allergy);
 
         $("#recipeList")
             .animate({
@@ -37,13 +46,15 @@ $("#searchBtn").on("click", function (event) {
 // APPLY FILTERS
 // =========================
 
-$(document).on("click", ".select", setFilter);
+$(document).on("click", "#setFilter", setFilter);
 
 function setFilter() {
-    searchLimit = $("#numResults").val() || "";
-    cuisine = $("#cuisine").val() || "";
-    diet = $("#diet").val() || "";
-    allergy = $("#allergy").val() || "";
+    searchLimit = $("#numResults").val();
+    cuisine = $("#cuisine").val();
+    diet = $("#diet").val();
+    allergy = $("#allergy").val();
+
+    searchRecipes(searchLimit, cuisine, diet, allergy);
 }
 
 // EXECUTE SEARCH
@@ -51,7 +62,15 @@ function setFilter() {
 
 // Search Recipe URL Format: http://api.yummly.com/v1/api/recipes?_app_id=1280f0ef&_app_key=c6dea6bf830227615c86bf87458ee3a8&q=onion
 
-function searchRecipes() {
+function searchRecipes(searchLimit, cuisine, diet, allergy) {
+
+    // Fade out recipe detail pane
+    $("#recipeDetail").animate({
+        opacity: 0
+    }, 250);
+
+    // Clear current recipe results
+    $("#recipeList").empty();
 
     // Get search term
     var searchTerm = $("#searchInputBox").val().trim();

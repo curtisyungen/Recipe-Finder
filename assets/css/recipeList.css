@@ -40,4 +40,5 @@ margin-left: 350px;
 max-height: 640px;
 opacity: 0;
 overflow-y: scroll;
+z-index: 99;
 }
