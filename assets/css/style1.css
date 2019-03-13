@@ -1,3 +1,33 @@
+/* HTML ELEMENTS */
+
+html {
+    overflow-y: hidden;
+}
+
+button {
+    border: 1px solid #cfcfcf;
+    float: left;
+    font-size: 14px;
+    height: auto;
+    line-height: 12px;
+    margin: 5px;
+    margin-top: 0px;
+    padding: 5px;
+}
+
+select {
+    font-size: 14px;
+    height: 30px;
+}
+
+span {
+    max-width: 75%;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 /* BOOTSTRAP ELEMENTS */
 
 .container {
@@ -22,32 +52,6 @@
 
 .row {
     width: 100%;
-}
-
-/* HTML ELEMENTS */
-
-button {
-    border: 1px solid #cfcfcf;
-    float: left;
-    font-size: 14px;
-    height: auto;
-    line-height: 12px;
-    margin: 5px;
-    margin-top: 0px;
-    padding: 5px;
-}
-
-select {
-    font-size: 14px;
-    height: 30px;
-}
-
-span {
-    max-width: 75%;
-}
-
-::-webkit-scrollbar { 
-    display: none; 
 }
 
 /* INDEX.HTML */
@@ -99,7 +103,7 @@ span {
 /* NAVBAR */
 
 .navbar {
-    margin-bottom: 100px;
+    border-bottom: 1px solid darkgray;
     z-index: 99;
 }
 
