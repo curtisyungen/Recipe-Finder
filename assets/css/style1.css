@@ -74,7 +74,7 @@ width: 100%;
 }
 
 #backgroundContainer {
-background: url("../images/leaves.jpg");
+/* background: url("../images/leaves.jpg"); */
 background-repeat: no-repeat;
 bottom: 0;
 left: 0;
@@ -84,6 +84,7 @@ padding: 0px;
 position: absolute;
 right: 0;
 top: 0;
+z-index: -1;
 
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -113,28 +114,8 @@ opacity: 1;
     padding-right: 0px;
 }
 
-/* SEARCH BOX */
-
-#filterBtn,
-#searchBtn,
-#viewList {
-height: 25;
-padding: 3px 10px;
-width: 100px;
-}
-
-#searchBox {
-background: rgb(230, 230, 230);
-border: 1px solid black;
-border-radius: 5px;
-height: 35px;
-margin-left: 350px;
-padding: 0px 8px;
-width: 380px;
-}
-
-#searchForm {
-margin-bottom: 20px;
+#searchInputBox {
+    /* width: 600px; */
 }
 
 

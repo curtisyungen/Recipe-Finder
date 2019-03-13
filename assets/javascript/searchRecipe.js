@@ -16,7 +16,7 @@ $("#searchBtn").on("click", function (event) {
     recipeArray = [];
 
     // If search box isn't empty, run search for recipes
-    if ($("#searchBox").val() != "" && $("#searchBox").val() != null) {
+    if ($("#searchInputBox").val() != "" && $("#searchInputBox").val() != null) {
 
         searchRecipes();
 
@@ -54,7 +54,7 @@ function setFilter() {
 function searchRecipes() {
 
     // Get search term
-    var searchTerm = $("#searchBox").val().trim();
+    var searchTerm = $("#searchInputBox").val().trim();
 
     if (searchTerm != "" && searchTerm != null) {
 
