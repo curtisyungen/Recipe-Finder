@@ -1,4 +1,12 @@
 @media screen and (max-width: 1200px) {
+
+    #recipeList {
+        height: 400px;
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 100%;
+    }
+
     #searchForm {
         position: relative;
         width: auto;
@@ -11,6 +19,7 @@
 }
 
 @media screen and (max-width: 960px) {
+
     #searchForm {
         left: auto;
         position: relative;
@@ -24,14 +33,23 @@
 }
 
 @media screen and (max-width: 768px) {
+    .navbar {
+        margin-bottom: 0px;
+    }
+    
     #recipeDetail {
         height: 400px;
-        margin-left: 0px;
+        margin-left: 5px;
+        margin-right: 5px;
         margin-top: 20px;
     }
 
     #recipeList {
         height: 400px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 20px;
+        width: 100%;
     }
 
     #searchForm {
