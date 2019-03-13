@@ -12,15 +12,16 @@
     <meta name="author" content="Curtis Yungen">
     <meta name="description" content="A simple recipe search and grocery list generator.">
     <meta name="keywords" content="Curtis Yungen, Grocery List, Javascript, Recipe, Yummly, API">
-    
+
     <title>Grocery List</title>
 
     <!-- Reset CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/css/recipeDetails.css">
     <link rel="stylesheet" type="text/css" href="assets/css/recipeList.css">
@@ -46,40 +47,38 @@
             <a class="navbar-brand" href="#">Recipe Search</a>
 
             <!-- Hamburger Menu -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Search Input Box -->
             <form class="form-inline my-2 my-lg-0" id="searchForm">
 
-                <input class="form-control mr-sm-2" id="searchInputBox" type="search" 
-                    placeholder="Search for Recipe" aria-label="Search" autocomplete="off">
+                <input class="form-control mr-sm-2" id="searchInputBox" type="search" placeholder="Search for Recipe"
+                    aria-label="Search" autocomplete="off">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
 
-
                 <!-- Buttons -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav mr-auto">
-    
+
                         <!-- Filters -->
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#filtersModal" id="filterBtn">Filters</a>
+                            <a class="nav-link" data-toggle="modal" data-target="#filtersModal"
+                                id="filterBtn">Filters</a>
                         </li>
-    
+
                         <!-- View List -->
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#listModal" id="viewList">View List</a>
                         </li>
-    
+
                     </ul>
-                    
+
                 </div>
             </form>
-            
-            
-
         </nav>
 
     </header>
@@ -171,8 +170,7 @@
                 <div class="modal-body" id="groceryList"></div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"
-                        id="filterSubmit">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="filterSubmit">Close</button>
                 </div>
 
             </div>
@@ -203,7 +201,8 @@
         </div> -->
 
     <!-- Javascript -->
-    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./assets/javascript/groceryList.js"></script>
     <script src="./assets/javascript/viewRecipeDetails.js"></script>
     <script src="./assets/javascript/searchRecipe.js"></script>
