@@ -45,13 +45,8 @@
             <!-- Title -->
             <a class="navbar-brand" href="#">Recipe Search</a>
 
-            <!-- Hamburger Menu -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
             <!-- Search Input Box -->
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" id="searchForm">
 
                 <input class="form-control mr-sm-2" id="searchInputBox" type="search" 
                     placeholder="Search for Recipe" aria-label="Search" autocomplete="off">
@@ -77,12 +72,17 @@
                 </ul>
                 
             </div>
+
+            <!-- Hamburger Menu -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </nav>
 
     </header>
 
     <!-- Background Container -->
-    <div class="container col-lg-12" id="backgroundContainer"></div>
+    <!-- <div class="container col-lg-12" id="backgroundContainer"></div> -->
 
     <!-- Filters Modal -->
     <div id="filtersModal" class="modal" role="dialog">

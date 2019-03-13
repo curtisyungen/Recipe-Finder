@@ -1,12 +1,12 @@
 /* BOOTSTRAP ELEMENTS */
 
 .container {
-margin-left: auto;
-margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .col-lg-6 {
-max-width: 100%;
+    max-width: 100%;
 }
 
 .col-lg-3,
@@ -14,41 +14,41 @@ max-width: 100%;
 .col-lg-6, 
 .col-lg-12,
 .row {
-margin-left: 0px;
-margin-right: 0px;
-padding-left: 0px;
-padding-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .row {
-width: 100%;
+    width: 100%;
 }
 
 /* HTML ELEMENTS */
 
 button {
-border: 1px solid #cfcfcf;
-float: left;
-font-size: 14px;
-height: auto;
-line-height: 12px;
-margin: 5px;
-margin-top: 0px;
-padding: 5px;
+    border: 1px solid #cfcfcf;
+    float: left;
+    font-size: 14px;
+    height: auto;
+    line-height: 12px;
+    margin: 5px;
+    margin-top: 0px;
+    padding: 5px;
 }
 
 select {
-font-size: 14px;
-height: 30px;
+    font-size: 14px;
+    height: 30px;
 }
 
 span {
-float: left;
-max-width: 75%;
+    float: left;
+    max-width: 75%;
 }
 
 ::-webkit-scrollbar { 
-display: none; 
+    display: none; 
 }
 
 /* INDEX.HTML */
@@ -102,9 +102,20 @@ display: none;
     z-index: 99;
 }
 
+.navbar-toggler {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#searchForm {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #searchInputBox {
-    margin-left: 300px;
-    width: 400px;
+    /* margin-left: 300px;
+    width: 400px; */
     /* width: 600px; */
 }
 
