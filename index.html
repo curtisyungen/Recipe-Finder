@@ -3,6 +3,9 @@
 <html lang="en-us">
 
 <head>
+
+    <title>Grocery List</title>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="content-script-type" content="text/javascript">
@@ -13,7 +16,8 @@
     <meta name="description" content="A simple recipe search and grocery list generator.">
     <meta name="keywords" content="Curtis Yungen, Grocery List, Javascript, Recipe, Yummly, API">
 
-    <title>Grocery List</title>
+    <!-- Google Sign-in Client ID -->
+    <meta name="google-signin-client_id" content="652830140760-dsctgrl977qamnp3q9auc63dr6oiqte7.apps.googleusercontent.com">
 
     <!-- Reset CSS -->
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
@@ -36,6 +40,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- Google Sign-In Javascript -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <!-- jQuery -->
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
@@ -83,6 +90,8 @@
 
                 </div>
             </form>
+
+            <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
         </nav>
 
     </header>
@@ -188,7 +197,9 @@
 
             <!-- Grocery List -->
             <div class="col-lg-3" id="groceryList">
+                <!-- <a id="exportBtn">Export</a> -->
                 <h4 id="groceryListTitle">Grocery List</h4>
+                
             </div>
 
             <!-- Search Results -->
@@ -211,6 +222,7 @@
     <!-- Javascript -->
     <script type="text/javascript"
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="./assets/javascript/login.js"></script>
     <script src="./assets/javascript/groceryList.js"></script>
     <script src="./assets/javascript/viewRecipeDetails.js"></script>
     <script src="./assets/javascript/searchRecipe.js"></script>
