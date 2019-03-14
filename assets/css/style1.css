@@ -106,6 +106,13 @@ span {
 
 /* NAVBAR */
 
+.g-signin2 {
+    clear: both;
+    float: right;
+    margin-right: 50px;
+    z-index: 99;
+  }
+
 .navbar {
     border: 0px;
     height: 75px;
