@@ -15,7 +15,7 @@ var dummyRecipe = {
   ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
 }
 
-addToGroceryList(dummyRecipe);
+// addToGroceryList(dummyRecipe);
 
 // This function is called when user chooses SELECT from recipe search results page
 
