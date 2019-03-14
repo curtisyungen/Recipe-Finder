@@ -9,6 +9,14 @@ var showHideBtn;
 var viewRecipeBtn;
 var deleteBtn;
 
+var dummyRecipe = {
+  recipeName: "Dummy",
+  id: "1234",
+  ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
+}
+
+addToGroceryList(dummyRecipe);
+
 // This function is called when user chooses SELECT from recipe search results page
 
 function addToGroceryList(recipe) {
@@ -42,13 +50,11 @@ function addToGroceryList(recipe) {
     // Create buttons
     viewRecipeBtn = $("<div>")
       .addClass("viewRecipeBtn")
-      .addClass("btn btn-info btn-sm")
-      .text("View Recipe");
+      .addClass("fas fa-list-ul fa-2x");
 
     deleteBtn = $("<div>")
       .addClass("deleteBtn")
-      .addClass("btn btn-danger btn-sm")
-      .text("Delete");
+      .addClass("fas fa-times fa-2x");
 
     showHideBtn = $("<div>").addClass("fas fa-angle-down fa-2x showHideBtn");
 
@@ -56,30 +62,12 @@ function addToGroceryList(recipe) {
     ingrList
       .append(showHideBtn)
       .append(`<h4>${recipe.recipeName}</h4>`)
-      .append(ingrListText);
+      .append(ingrListText)
+      .append(deleteBtn);
 
     // Add set of ingredients to grocery list
     $("#groceryList").append(ingrList);
   }
-
-  // var ingrList = $("<div>");
-  // ingrList.addClass("expandable-content");
-
-  // // Get list of ingredients and ingredientLines from recipe object
-  // var ingredients = recipe.ingredients;
-  // var ingredientLines = recipe.ingredientLines;
-
-  // // Create a div for each separate ingredient and add it to container div
-  // for (var i = 0; i < ingredients.length; i++) {
-
-  //   var ingr = $("<h5 style='text-align:left;'>");
-  //   ingr.html(ingredientLines[i]);
-
-  //   ingr.addClass("ingredient");
-  //   ingr.attr("data-crossed", "false");
-
-  //   ingrList.append(ingr);
-  // }
 
   // // Create button to toggle between Image display and Text display
   // var displayTypeBtn = createImagesBtn(recipe, "text");
@@ -163,6 +151,13 @@ function showHideList() {
         opacity: 1
       }, 500);
 
+    // Fade in delete button
+    targetList.children(".deleteBtn")
+      .show()
+      .animate({
+        opacity: 1
+      }, 500);
+
     // Update attribute to show this div is expanded
     targetList.attr("data-status", "open");
   }
@@ -182,6 +177,13 @@ function showHideList() {
 
     // Fade out ingredient list
     targetList.children(".ingrListText")
+      .animate({
+        opacity: 0
+      }, 500)
+      .hide();
+
+    // Fade out delete button
+    targetList.children(".deleteBtn")
       .animate({
         opacity: 0
       }, 500)
@@ -281,13 +283,7 @@ function callGetRecipeDetails() {
 $(document).on("click", ".deleteBtn", function (event) {
   event.preventDefault();
 
-  var $this = $(this);
-
-  var recipeId = $this.parent().parent().id;
-  console.log(gList);
-  return;
-
-  removeFromGroceryList(deleteRecipe);
+  $(this).parent().remove();
 
 });
 

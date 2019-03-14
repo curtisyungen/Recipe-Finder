@@ -73,6 +73,7 @@ margin-top: 15px;
 background: white;
 border: 1px solid darkgray;
 height: 90vh;
+margin: 10px;
 opacity: 0;
 overflow-y: scroll;
 padding: 20px;

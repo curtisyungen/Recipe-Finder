@@ -36,8 +36,7 @@ img {
 #recipeList {
     display: inline-block;
     height: 90vh;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
     overflow-y: scroll;
     z-index: 99;
 }
