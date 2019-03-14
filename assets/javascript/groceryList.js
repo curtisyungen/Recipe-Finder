@@ -132,7 +132,7 @@ function showHideList() {
     // 16 is font size
     // 50 is initial div height
     // 40 is padding-top and bottom
-    var height = targetList.children(".ingrListText").attr("data-numItems") * 16 + 50 + 40;
+    var height = targetList.children(".ingrListText").attr("data-numItems") * 16 + 50 + 40 + 20;
 
     // Expand the list
     targetList.animate({

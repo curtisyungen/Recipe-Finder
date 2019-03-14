@@ -72,9 +72,10 @@ function showRecipeDetail(id) {
             var buttonText = "Make This Recipe";
             var buttonStatus = "make";
 
-            // Check if recipe is already in Grocery List by searching for its ID in Selected Array
-            for (var item in selectedArray) {
-                if (selectedArray[item].id == selectedRecipe.id) {
+            for (var i=0; i<$("#groceryList").children().length; i++) {
+
+                if ($("#groceryList").children()[i].dataset.id == selectedRecipe.id) {
+
                     buttonClass = "btn btn-success btn-sm";
                     buttonText = "Added to List";
                     buttonStatus = "added";
