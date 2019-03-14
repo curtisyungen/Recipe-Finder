@@ -6,6 +6,19 @@ var APP_ID = "1280f0ef";
 var recipeArray = [];
 var selectedArray = [];
 
+
+$(document).on("click", ".gListName", showRecipeDetailFromList);
+
+function showRecipeDetailFromList() {
+    var id = $(this).attr("data-recipeId");
+
+    var recipe = {
+        id: id
+    }
+
+    showRecipeDetail(recipe);
+}
+
 // =========================
 // FADE IN BACKGROUND IMAGE
 // =========================

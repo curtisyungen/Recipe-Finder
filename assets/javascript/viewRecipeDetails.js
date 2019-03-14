@@ -9,8 +9,6 @@ $(document).on("click", ".recipeDiv", function () {
 
     var id = $(this).attr("id");
 
-    $("#recipeDetail").empty();
-
     $("#recipeDetail").animate({
         opacity: 0.90
     }, 100);
@@ -20,7 +18,20 @@ $(document).on("click", ".recipeDiv", function () {
 
 function showRecipeDetail(id) {
 
-    var selectedRecipe = recipeArray[id];
+    $("#recipeDetail").empty();
+
+    var selectedRecipe;
+
+    if (isNaN(id)) {
+        for (var i in selectedArray) {
+            if (selectedArray[i].id == id.id) {
+                selectedRecipe = selectedArray[i];
+            }
+        }
+    }
+    else {
+        selectedRecipe = recipeArray[id];
+    }
 
     // ======== GET RECIPE API QUERY ========
 

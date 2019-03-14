@@ -15,7 +15,7 @@ var dummyRecipe = {
   ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
 }
 
-// addToGroceryList(dummyRecipe);
+addToGroceryList(dummyRecipe);
 
 // This function is called when user chooses SELECT from recipe search results page
 
@@ -61,7 +61,7 @@ function addToGroceryList(recipe) {
     // Add recipe title and list of ingredients to list div
     ingrList
       .append(showHideBtn)
-      .append(`<h4>${recipe.recipeName}</h4>`)
+      .append(`<h4 class="gListName" data-recipeId="${recipe.id}">${recipe.recipeName}</h4>`)
       .append(ingrListText)
       .append(deleteBtn);
 
