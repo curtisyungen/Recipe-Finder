@@ -29,6 +29,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style1.css">
     <link rel="stylesheet" type="text/css" href="assets/css/media-queries.css">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -41,10 +45,10 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg">
 
             <!-- Title -->
-            <a class="navbar-brand" href="#">Recipe Search</a>
+            <a class="navbar-brand" href="#" id="siteTitle">Recipe Search</a>
 
             <!-- Hamburger Menu -->
             <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -71,9 +75,9 @@
                         </li>
 
                         <!-- View List -->
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" data-toggle="modal" data-target="#listModal" id="viewList">View List</a>
-                        </li>
+                        </li> -->
 
                     </ul>
 
@@ -184,14 +188,14 @@
 
             <!-- Grocery List -->
             <div class="col-lg-3" id="groceryList">
-                <h4>Grocery List</h4>
+                <h4 id="groceryListTitle">Grocery List</h4>
             </div>
 
             <!-- Search Results -->
-            <div class="col-lg-4" id="recipeList"></div>
+            <div class="col-lg-5" id="recipeList"></div>
 
             <!-- Recipe Detail View -->
-            <div class="col-lg-4" id="recipeDetail"></div>
+            <div class="col-lg-3" id="recipeDetail"></div>
 
         </div>
     </div>

@@ -34,11 +34,10 @@ img {
 }
 
 #recipeList {
-    border: 1px solid darkgray;
     display: inline-block;
-    height: calc(100vh - 55px);
-    margin-left: 20px;
-    margin-right: 20px;
+    height: 90vh;
+    margin-left: 10px;
+    margin-right: 10px;
     overflow-y: scroll;
     z-index: 99;
 }

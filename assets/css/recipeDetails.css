@@ -26,7 +26,7 @@ margin-right: 5px;
 
 .makeThisRecipeBtn {
 cursor: pointer;
-margin-top: -10px;
+margin-top: -20px;
 position: absolute;
 right: 20px;
 }
@@ -72,7 +72,7 @@ margin-top: 15px;
 #recipeDetail {
 background: white;
 border: 1px solid darkgray;
-height: calc(100vh - 55px);
+height: 90vh;
 opacity: 0;
 overflow-y: scroll;
 padding: 20px;
