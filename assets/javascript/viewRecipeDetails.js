@@ -26,6 +26,7 @@ function showRecipeDetail(id) {
         for (var i in selectedArray) {
             if (selectedArray[i].id == id.id) {
                 selectedRecipe = selectedArray[i];
+                id = id.id;
             }
         }
     }
