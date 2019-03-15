@@ -5,7 +5,7 @@ This website is a simple way to search for Recipes and add their ingredients to 
 It uses the Yummly API to access recipe data.
 
 ### View in Github Pages
-This project is deployed on Github Pages. Take a look here: https://curtisyungen.github.io/Grocery-List/
+This project is deployed on Heroku. Take a look here: https://recipe-to-grocery-list.herokuapp.com/
 
 ### Download Instructions
 
