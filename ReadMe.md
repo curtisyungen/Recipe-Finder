@@ -7,6 +7,14 @@ It uses the Yummly API to access recipe data.
 ### View in Github Pages
 This project is deployed on Heroku. Take a look here: https://recipe-to-grocery-list.herokuapp.com/
 
+### Dependencies
+
+1. MySQL (npm install mysql)
+2. Express (npm install express)
+3. Handlebars (npm install express-handlebars)
+4. Axios (npm install axios)
+5. Sequelize (npm install sequelize)
+
 ### Download Instructions
 
 1) Go to repository home page (https://github.com/curtisyungen/Grocery-List)
@@ -19,14 +27,6 @@ This project is deployed on Heroku. Take a look here: https://recipe-to-grocery-
 8) Start the program on localhost by executing "node server.js" command
 9) Open browser and navigate to localhost:3000 to view page
 
-#### Image 1
+#### Image 1: Download as .zip file from GitHub
 
 ![Download Instructions](/assets/images/download-instructions.png)
-
-### Dependencies
-
-1. MySQL (npm install mysql)
-2. Express (npm install express)
-3. Handlebars (npm install express-handlebars)
-4. Axios (npm install axios)
-5. Sequelize (npm install sequelize)
