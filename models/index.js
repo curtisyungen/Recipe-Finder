@@ -1,5 +1,8 @@
+// Execute code in strict mode
 "use strict";
 
+// DEPENDENCIES
+// ========================================
 var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
@@ -8,6 +11,8 @@ var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
+// SEQUELIZE
+// ========================================
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
@@ -19,6 +24,8 @@ if (config.use_env_variable) {
   );
 }
 
+// FILE SYSTEM
+// ========================================
 fs.readdirSync(__dirname)
   .filter(function(file) {
     return (
