@@ -7,6 +7,17 @@ var exphbs = require("express-handlebars");
 var path = require('path');
 var axios = require("axios");
 
+// MYSQL DATABASE
+// ========================================
+var db = require("./models");
+
+var syncOptions = { force: false };
+
+// Overwrite database if in test environment
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
+
 // ROUTES
 // ========================================
 require("./routes/apiRoutes")(app);
@@ -41,17 +52,6 @@ app.use(function(req, res, next) {
   );
   next();
 });
-
-// MYSQL DATABASE
-// ========================================
-var db = require("./models");
-
-var syncOptions = { force: false };
-
-// Overwrite database if in test environment
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
 
 // START SERVER
 // ========================================
