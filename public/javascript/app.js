@@ -33,6 +33,17 @@ function showRecipeDetailFromList() {
 }
 
 // =========================
+// FADE IN BACKGROUND IMAGE
+// =========================
+
+// Included this so user won't see choppy loading of background image
+// $(document).ready(function() {
+//     $("#backgroundContainer").on('webkitAnimationEnd', function(e) {
+//         $(this).addClass('visible');
+//     });
+// });
+
+// =========================
 // GOOGLE SIGN OUT
 // =========================
 var auth2;
@@ -40,7 +51,7 @@ var auth2;
 window.onLoadCallback = function () {
   gapi.load('auth2', function () {
     auth2 = gapi.auth2.init({
-      client_id: '652830140760-dsctgrl977qamnp3q9auc63dr6oiqte7.apps.googleusercontent.com',
+      client_id: '894965613215-inve9sto28jrujo1kshpeao4gm2e8hdb.apps.googleusercontent.com',
       scope: 'profile',
       fetch_basic_profile: false
     });
