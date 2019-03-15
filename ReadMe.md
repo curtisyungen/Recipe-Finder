@@ -18,3 +18,11 @@ This project is deployed on Heroku. Take a look here: https://recipe-to-grocery-
 #### Image 1
 
 ![Download Instructions](/assets/images/download-instructions.png)
+
+### Dependencies
+
+1. MySQL (npm install mysql)
+2. Express (npm install express)
+3. Handlebars (npm install express-handlebars)
+4. Axios (npm install axios)
+5. Sequelize (npm install sequelize)
