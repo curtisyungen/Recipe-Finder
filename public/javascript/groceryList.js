@@ -1,5 +1,5 @@
 // ===============================
-// ADD items to Grocery List
+// GLOBALS
 // ===============================
 
 var groceryList = [];
@@ -9,13 +9,48 @@ var showHideBtn;
 var viewRecipeBtn;
 var deleteBtn;
 
+// ===============================
+// GET USER INFO FROM LOCAL STORAGE
+// ===============================
+
+var user = {
+  userId: localStorage.getItem("userId"),
+  userEmail: localStorage.getItem("userEmail"),
+  userName: localStorage.getItem("userName")
+};
+
+// ===============================
+// DUMMY RECIPE FOR DEVELOPMENT USE ONLY
+// ===============================
+
 var dummyRecipe = {
-  recipeName: "Dummy",
+  recipeName: "Dummy Recipe",
   id: "1234",
   ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
 }
 
 addToGroceryList(dummyRecipe);
+
+// ===============================
+// LOAD USER'S LIST UPON PAGE LOAD
+// ===============================
+
+function getGroceryList() {
+
+    $.ajax({
+        url: "/api/getUserRecipes/" + user.userId,
+        method: "GET"
+    })
+        .then(function (response) {
+            console.log(response);
+        });
+}
+
+getGroceryList();
+
+// ===============================
+// ADD items to Grocery List
+// ===============================
 
 // This function is called when user chooses SELECT from recipe search results page
 
@@ -68,22 +103,6 @@ function addToGroceryList(recipe) {
     // Add set of ingredients to grocery list
     $("#groceryList").append(ingrList);
   }
-
-  // // Create button to toggle between Image display and Text display
-  // var displayTypeBtn = createImagesBtn(recipe, "text");
-  // ingrList.append(displayTypeBtn);
-
-  // // Create button to view Recipe Details
-  // var detailsBtn = createDetailsBtn(recipe);
-  // ingrList.append(detailsBtn);
-
-  // // Create delete button
-  // var deleteBtn = createDeleteBtn(recipe);
-  // ingrList.append(deleteBtn);
-
-  // onsListItem.append(ingrList);
-  // $("#groceryList").append(onsListItem);
-
 }
 
 // ===============================
@@ -224,58 +243,6 @@ function crossOffList() {
   }
 }
 
-// ===============================
-// CLEAR Grocery List
-// ===============================
-
-$(document).on("click", "#clearGroceryList", function (event) {
-  event.preventDefault();
-
-  $("#groceryList").empty();
-  $(".clipart").detach();
-
-  localStorage.removeItem("selectedArray");
-
-  $(".listButton").attr("disabled", true);
-});
-
-// ======================================
-// HIDE ALL Button for Grocery List
-// ======================================
-
-$(document).on("click", "#hideAll", hideAll);
-
-function hideAll() {
-  Array.from(document.querySelector('#groceryList').children)
-    .forEach(item => {
-      if (item.expanded) {
-        item.hideExpansion();
-      }
-    });
-}
-
-// ======================================
-// View RECIPE DETAILS from Grocery List
-// ======================================
-
-$(document).on("click", ".viewDetails", callGetRecipeDetails);
-
-function callGetRecipeDetails() {
-
-  selectedArray = JSON.parse(localStorage.getItem("selectedArray"));
-  var localStorageId;
-
-  for (var i = 0; i < selectedArray.length; i++) {
-    if ($(this).attr("id") == selectedArray[i].id) {
-      localStorageId = i;
-    }
-  }
-
-  var selectedRecipe = selectedArray[localStorageId];
-
-  getRecipeDetail(localStorageId, selectedRecipe);
-}
-
 // =========================================
 // DELETE Individual Entry from Grocery List
 // =========================================
@@ -286,4 +253,34 @@ $(document).on("click", ".deleteBtn", function (event) {
   $(this).parent().remove();
 
 });
+
+// ===============================
+// CLEAR Grocery List
+// ===============================
+
+// $(document).on("click", "#clearGroceryList", function (event) {
+//   event.preventDefault();
+
+//   $("#groceryList").empty();
+//   $(".clipart").detach();
+
+//   localStorage.removeItem("selectedArray");
+
+//   $(".listButton").attr("disabled", true);
+// });
+
+// ======================================
+// HIDE ALL Button for Grocery List
+// ======================================
+
+// $(document).on("click", "#hideAll", hideAll);
+
+// function hideAll() {
+//   Array.from(document.querySelector('#groceryList').children)
+//     .forEach(item => {
+//       if (item.expanded) {
+//         item.hideExpansion();
+//       }
+//     });
+// }
 

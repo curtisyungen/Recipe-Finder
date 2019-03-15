@@ -1,3 +1,13 @@
+// ===============================
+// GET USER INFO FROM LOCAL STORAGE
+// ===============================
+
+var user = {
+    userId: localStorage.getItem("userId"),
+    userEmail: localStorage.getItem("userEmail"),
+    userName: localStorage.getItem("userName")
+};
+
 // =========================
 // MAKE THIS RECIPE
 // =========================
@@ -21,7 +31,7 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
         // Remove this recipe from Selected Array
         var index = $this.attr("data-selectedArrIdx");
         selectedArray.splice(index, 1);
-        
+
         // Update button classes and attributes
         $this
             .removeClass("btn btn-success")
@@ -43,7 +53,7 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
             .removeClass("btn btn-primary")
             .addClass("btn btn-success")
             .attr("data-status", "added")
-            .attr("data-selectedArrIdx", selectedArray.length-1)
+            .attr("data-selectedArrIdx", selectedArray.length - 1)
             .text("Added to List");
 
         // Add selected recipe to grocery list

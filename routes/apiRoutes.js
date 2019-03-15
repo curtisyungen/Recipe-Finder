@@ -13,7 +13,7 @@ module.exports = function (app) {
   });
 
   // Get all routes specific to user
-  app.get("/api/getAllRecipes/:id", function (req, res) {
+  app.get("/api/getUserRecipes/:id", function (req, res) {
     db.Recipes.findAll({ where: { UserId: req.params.id } }).then(function (response) {
       return res.json(response);
     });

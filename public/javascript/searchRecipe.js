@@ -7,6 +7,16 @@ var cuisine = "";
 var diet = "";
 var allergy = "";
 
+// ===============================
+// GET USER INFO FROM LOCAL STORAGE
+// ===============================
+
+var user = {
+    userId: localStorage.getItem("userId"),
+    userEmail: localStorage.getItem("userEmail"),
+    userName: localStorage.getItem("userName")
+};
+
 // ============================================================================================================================
 // Yummly APIs: Search Recipe API, Get Recipe API
 // Yummly API Documentation: https://developer.yummly.com/documentation

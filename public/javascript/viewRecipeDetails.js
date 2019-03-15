@@ -1,3 +1,12 @@
+// ===============================
+// GET USER INFO FROM LOCAL STORAGE
+// ===============================
+
+var user = {
+    userId: localStorage.getItem("userId"),
+    userEmail: localStorage.getItem("userEmail"),
+    userName: localStorage.getItem("userName")
+};
 
 // =========================
 // VIEW RECIPE DETAILS
@@ -84,7 +93,7 @@ function showRecipeDetail(id) {
             var buttonText = "Make This Recipe";
             var buttonStatus = "make";
 
-            for (var i=0; i<$("#groceryList").children().length; i++) {
+            for (var i = 0; i < $("#groceryList").children().length; i++) {
 
                 if ($("#groceryList").children()[i].dataset.id == selectedRecipe.id) {
 
