@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
