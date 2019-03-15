@@ -1,0 +1,91 @@
+/* GROCERY LIST */
+
+.viewRecipeBtn {
+    cursor: pointer;
+    display: none;
+    float: right;
+    margin: 5px;
+    margin-right: 10px; 
+    opacity: 0;
+}
+
+.deleteBtn {
+    color: rgb(197, 0, 0);
+    cursor: pointer;
+    display: none;
+    margin-top: 0px;
+    opacity: 0;
+    position: absolute;
+    right: 25px;
+}
+
+#groceryList {
+    background: lightyellow;
+    border: 1px solid darkgray;
+    display: inline-block;
+    height: auto;
+    margin-top: 10px;
+    max-height: 90vh;
+    min-height: 200px;
+    opacity: 0.9;
+    overflow-y: scroll;
+    z-index: 99;
+}
+
+#groceryListTitle {
+    border-bottom: 0.5px solid rgb(233, 233, 233);
+    font-family: 'Slabo 27px', serif;
+    font-size: 24px;
+    margin: 10px;
+    z-index: 99;
+}
+
+#exportBtn {
+    color: rgb(151, 151, 151);
+    cursor: pointer;
+    float: right;
+    font-size: 14px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+#exportBtn:hover {
+color: black;
+}
+
+.ingrList {
+    /* background: rgb(248, 248, 248); */
+    border: 1px dashed darkgray;
+    border-left: 0px;
+    border-right: 0px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 50px;
+    margin-bottom: 5px;
+    padding: 20px 5px;
+}
+
+.ingrList h4 {
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: -10px;
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ingrListText {
+    display: none;
+    font-family: 'Patrick Hand', cursive;
+    max-height: 300px;
+    opacity: 0;
+    overflow-y: scroll;
+}
+
+.showHideBtn {
+    margin-top: -12px;
+    position: absolute;
+    right: 25px;
+}

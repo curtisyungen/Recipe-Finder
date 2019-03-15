@@ -11,7 +11,7 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("assets"));
+app.use(express.static("public"));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

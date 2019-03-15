@@ -1,0 +1,98 @@
+@media screen and (max-width: 1200px) {
+
+    #recipeList {
+        height: 400px;
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 100%;
+    }
+
+    #searchForm {
+        position: relative;
+        width: auto;
+    }
+
+    #searchInputBox {
+        min-width: 300px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 960px) {
+
+    #searchForm {
+        left: auto;
+        position: relative;
+        width: auto;
+    }
+
+    #searchInputBox {
+        min-width: 300px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        margin-bottom: 0px;
+    }
+    
+    #recipeDetail {
+        height: 400px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+
+    #recipeList {
+        height: 400px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #searchForm {
+        left: auto;
+        position: relative;
+        width: auto;
+    }
+
+    #searchInputBox {
+        min-width: 300px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    #recipeDetail {
+        height: 300px;
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+
+    #recipeList {
+        height: 300px;
+    }
+
+    #searchBtn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #searchForm {
+        left: 45%;
+        position: relative;
+        width: 100%;
+    }
+
+    #searchInputBox {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+}
+
