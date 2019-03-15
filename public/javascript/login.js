@@ -11,7 +11,7 @@ console.log("Signing in");
     localStorage.setItem("userId", googleUserObject.sub);
     localStorage.setItem("userEmail", googleUserObject.email);
     localStorage.setItem("userName", googleUserObject.name);
-    document.location.href = '/index';
+    // document.location.href = '/';
   };
   xhr.send('idtoken=' + id_token); 
 }

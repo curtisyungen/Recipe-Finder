@@ -1,6 +1,7 @@
 // require("dotenv").config();
 
 var express = require("express");
+var exphbs = require("express-handlebars");
 var path = require('path');
 var axios = require("axios");
 
@@ -22,11 +23,20 @@ app.use(function(req, res, next) {
   next();
 });
 
+// Handlebars
+app.engine(
+  "handlebars",
+  exphbs({
+    defaultLayout: "main"
+  })
+);
+app.set("view engine", "handlebars");
+
 //app.set("loginUrl", getAuthUrl());
 
 // Routes
 require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
