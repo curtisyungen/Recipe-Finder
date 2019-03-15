@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS recipes;
+CREATE DATABASE recipes;
+
+SET GLOBAL sql_mode="";

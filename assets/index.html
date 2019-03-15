@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <title>Grocery List</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-script-type" content="text/javascript">
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Curtis Yungen">
+    <meta name="description" content="A simple recipe search and grocery list generator.">
+    <meta name="keywords" content="Curtis Yungen, Grocery List, Javascript, Recipe, Yummly, API">
+
+    <!-- Google Sign-in Client ID -->
+    <meta name="google-signin-client_id" content="652830140760-dsctgrl977qamnp3q9auc63dr6oiqte7.apps.googleusercontent.com">
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="./css/recipeDetails.css">
+    <link rel="stylesheet" type="text/css" href="./css/recipeList.css">
+    <link rel="stylesheet" type="text/css" href="./css/groceryList.css">
+    <link rel="stylesheet" type="text/css" href="./css/style1.css">
+    <link rel="stylesheet" type="text/css" href="./css/media-queries.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab|Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- Google Sign-In Javascript -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- jQuery -->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <!-- Title -->
+            <a class="navbar-brand" href="#" id="siteTitle">Recipe Search</a>
+
+            <!-- Hamburger Menu -->
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+            <!-- Search Input Box -->
+            <form class="form-inline my-2 my-lg-0" id="searchForm">
+
+                <input class="form-control mr-sm-2" id="searchInputBox" type="search" placeholder="Search for Recipe"
+                    aria-label="Search" autocomplete="off">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+
+                <!-- Buttons -->
+                <div id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <!-- Filters -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#filtersModal"
+                                id="filterBtn">Filters</a>
+                        </li>
+
+                        <!-- View List -->
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#listModal" id="viewList">View List</a>
+                        </li> -->
+
+                    </ul>
+
+                </div>
+            </form>
+
+            <div class="g-signin2" data-onsuccess="onSignIn" id="signIn"></div>
+        </nav>
+
+    </header>
+
+    <!-- Background Container -->
+    <div id="backgroundContainer"></div>
+
+    <!-- Filters Modal -->
+    <div id="filtersModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Search Filters</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <!-- Number of Results -->
+                    <select class="select" id="numResults" value="15">
+                        <option value="15">15</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                    <!-- Cuisine -->
+                    <select class="select" id="cuisine" value="">
+                        <option value="">Any Cuisine</option>
+                        <option value="american">American</option>
+                        <option value="asian">Asian</option>
+                        <option value="barbecue">Barbecue</option>
+                        <option value="chinese">Chinese</option>
+                        <option value="greek">Greek</option>
+                        <option value="hawaiian">Hawaiian</option>
+                        <option value="indian">Indian</option>
+                        <option value="italian">Italian</option>
+                        <option value="japanese">Japanese</option>
+                        <option value="mexican">Mexican</option>
+                        <option value="thai">Thai</option>
+                        <option value="vietnamese">Vietnamese</option>
+                    </select>
+
+                    <!-- Diet -->
+                    <select class="select" id="diet" value="">
+                        <option value="">Any Diet</option>
+                        <option value="386^Vegan">Vegan</option>
+                        <option value="387^Lacto-ovo vegetarian">Vegetarian</option>
+                        <option value="390^Pescetarian">Pescetarian</option>
+                        <option value="389^Ovo vegetarian">Ovo Vegetarian</option>
+                        <option value="388^Lacto vegetarian">Lacto Vegetarian</option>
+                    </select>
+
+                    <!-- Allergy -->
+                    <select class="select" id="allergy" value="">
+                        <option value="">No Allergy</option>
+                        <option value="396^Dairy-Free">Dairy</option>
+                        <option value="397^Egg-Free">Egg</option>
+                        <option value="393^Gluten-Free">Gluten</option>
+                        <option value="394^Peanut-Free">Peanut</option>
+                        <option value="398^Seafood-Free">Seafood</option>
+                        <option value="399^Sesame-Free">Sesame</option>
+                        <option value="400^Soy-Free">Soy</option>
+                        <option value="395^Tree Nut-Free">Tree Nut</option>
+                        <option value="392^Wheat-Free">Wheat</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="setFilter" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grocery List Modal -->
+    <!-- <div id="listModal" class="modal" role="dialog">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Grocery List</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body" id="groceryList"></div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="filterSubmit">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Content Container -->
+
+    <div class="container" id="contentContainer">
+
+        <div class="row" id="contentRow">
+
+            <!-- Grocery List -->
+            <div class="col-lg-3" id="groceryList">
+                <!-- <a id="exportBtn">Export</a> -->
+                <h4 id="groceryListTitle">Grocery List</h4>
+                
+            </div>
+
+            <!-- Search Results -->
+            <div class="col-lg-5" id="recipeList"></div>
+
+            <!-- Recipe Detail View -->
+            <div class="col-lg-3" id="recipeDetail"></div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <!-- <div>
+            <div id="footer">
+                Footer
+            </div>
+        </div> -->
+
+    <!-- Javascript -->
+    <script type="text/javascript"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="./javascript/login.js"></script>
+    <script src="./javascript/groceryList.js"></script>
+    <script src="./javascript/viewRecipeDetails.js"></script>
+    <script src="./javascript/searchRecipe.js"></script>
+    <script src="./javascript/makeThisRecipe.js"></script>
+    <script src="./javascript/app.js"></script>
+
+</body>
+
+</html>
