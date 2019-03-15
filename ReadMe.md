@@ -29,4 +29,4 @@ This project is deployed on Heroku. Take a look here: https://recipe-to-grocery-
 
 #### Image 1: Download as .zip file from GitHub
 
-![Download Instructions](/assets/images/download-instructions.png)
+![Download Instructions](/public/images/download-instructions.png)
