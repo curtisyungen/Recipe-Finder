@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var Recipes = sequelize.define("Recipes", {
     name: DataTypes.STRING,
     recipeId: DataTypes.INTEGER,
-    ingredients: DataTypes.STRING(1000)
+    ingredients: DataTypes.STRING(2000)
   });
 
   Recipes.associate = function(models) {
