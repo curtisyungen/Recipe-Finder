@@ -1,13 +1,3 @@
-// ===============================
-// GET USER INFO FROM LOCAL STORAGE
-// ===============================
-
-var user = {
-    userId: localStorage.getItem("userId"),
-    userEmail: localStorage.getItem("userEmail"),
-    userName: localStorage.getItem("userName")
-};
-
 // =========================
 // VIEW RECIPE DETAILS
 // =========================

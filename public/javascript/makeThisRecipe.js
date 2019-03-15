@@ -1,13 +1,3 @@
-// ===============================
-// GET USER INFO FROM LOCAL STORAGE
-// ===============================
-
-var user = {
-    userId: localStorage.getItem("userId"),
-    userEmail: localStorage.getItem("userEmail"),
-    userName: localStorage.getItem("userName")
-};
-
 // =========================
 // MAKE THIS RECIPE
 // =========================
@@ -58,8 +48,6 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
 
         // Add selected recipe to grocery list
         addToGroceryList(selectedRecipe);
-
-        // localStorage.setItem("selectedArray", JSON.stringify(selectedArray));
     }
 
 });

@@ -10,16 +10,6 @@ var viewRecipeBtn;
 var deleteBtn;
 
 // ===============================
-// GET USER INFO FROM LOCAL STORAGE
-// ===============================
-
-var user = {
-  userId: localStorage.getItem("userId"),
-  userEmail: localStorage.getItem("userEmail"),
-  userName: localStorage.getItem("userName")
-};
-
-// ===============================
 // DUMMY RECIPE FOR DEVELOPMENT USE ONLY
 // ===============================
 
