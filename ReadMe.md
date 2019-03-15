@@ -13,7 +13,11 @@ This project is deployed on Heroku. Take a look here: https://recipe-to-grocery-
 2) Click the green "Clone or Download" button (Image 1) 
 3) Select "Download ZIP"
 4) Extract files to desired location on your computer
-5) Open the folder and open the index.html file to view in your browser
+5) Open a new terminal in Visual Studio Code
+6) Navigate to the root folder of this project
+7) Install dependencies (npm install)
+8) Start the program on localhost by executing "node server.js" command
+9) Open browser and navigate to localhost:3000 to view page
 
 #### Image 1
 
