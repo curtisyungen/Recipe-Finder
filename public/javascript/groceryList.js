@@ -24,8 +24,10 @@ $(document).ready(function() {
   addToGroceryList(dummyRecipe);
 
   let localData = JSON.parse(localStorage.getItem("groceryList"));
-  console.log("Local Data", localData);
-  console.log("First Index", localData[0]);
+
+  for (var i in localData) {
+    addToGroceryList(localData[i]);
+  }
 
 });
 
