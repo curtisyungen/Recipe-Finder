@@ -133,7 +133,7 @@ function removeFromGroceryList(recipe) {
 
   // Delete recipe div from grocery list
   gList.children()[index].remove();  
-  groceryList[index].remove();
+  groceryList[index - 1].remove();
 
   console.log("POST Grocery List", groceryList);
 }
