@@ -98,3 +98,12 @@ color: black;
     text-decoration: none;
     top: 5px;
 }
+
+#email {
+    color: black;
+    text-decoration: none;
+}
+
+#email:hover {
+    text-decoration: none;
+}
