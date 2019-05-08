@@ -289,6 +289,6 @@ $(document).on("click", ".deleteBtn", function (event) {
 // ===============================
 
 $("#email").on("click", function() {
-  console.log(ingrList);
+  console.log(gList.children());
 });
 
