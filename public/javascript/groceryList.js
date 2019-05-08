@@ -105,7 +105,7 @@ function addToGroceryList(recipe) {
 
     groceryList.push(ingrList);
 
-    localStorage.setItem("groceryList", JSON.stringify(groceryList));
+    localStorage.setItem("groceryList", JSON.stringify(groceryList[0]));
   }
 }
 
