@@ -310,7 +310,7 @@ $(document).on("click", ".deleteBtn", function (event) {
 $("#email").on("click", function() {
 
   let href = 
-    `mailto:${user.userEmail}?subject=Grocery List&body=${groceryList}`;
+    `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.stringify(groceryList)}`;
 
   $(this).attr("href", href);
 });
