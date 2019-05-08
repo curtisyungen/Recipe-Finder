@@ -298,7 +298,7 @@ $("#email").on("click", function() {
 
     for (var node in nodes) {
       if (nodes[node].data) {
-        ingredients.push(NodeList[node].data);
+        ingredients.push(nodes[node].data);
       }
     }
 
