@@ -292,7 +292,7 @@ $("#email").on("click", function() {
   var groceryList = $("#groceryList").children();
 
   for (var recipe in groceryList) {
-    console.log(groceryList[recipe].dataset);
+    console.log(groceryList[recipe]);
   }
 });
 
