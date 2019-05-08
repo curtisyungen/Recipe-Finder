@@ -23,8 +23,8 @@ $(document).on("ready", function() {
 
   addToGroceryList(dummyRecipe);
 
-  let localData = JSON.parse(localStorage.getItem("groceryList"));
-  console.log(localData);
+  let localData = localStorage.getItem("groceryList");
+  console.log("Local Data", localData);
 
   
 
