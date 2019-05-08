@@ -19,14 +19,12 @@ var dummyRecipe = {
   ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
 }
 
-$(document).on("ready", function() {
+$(document).ready(function() {
 
   addToGroceryList(dummyRecipe);
 
   let localData = localStorage.getItem("groceryList");
   console.log("Local Data", localData);
-
-  
 
 });
 
@@ -114,7 +112,8 @@ function addToGroceryList(recipe) {
     $("#groceryList").append(ingrList);
 
     let recipeEntry = {
-      name: recipe.recipeName,
+      id: recipe.id,
+      recipeName: recipe.recipeName,
       ingredients: recipe.ingredients
     }
 
