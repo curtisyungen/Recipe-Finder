@@ -35,18 +35,18 @@ var user = {
 // LOAD USER'S LIST UPON PAGE LOAD
 // ===============================
 
-function getGroceryList() {
+// function getGroceryList() {
 
-    $.ajax({
-        url: "/api/getUserRecipes/" + user.userId,
-        method: "GET"
-    })
-        .then(function (response) {
-            console.log(response);
-        });
-}
+//     $.ajax({
+//         url: "/api/getUserRecipes/" + user.userId,
+//         method: "GET"
+//     })
+//         .then(function (response) {
+//             console.log(response);
+//         });
+// }
 
-getGroceryList();
+// getGroceryList();
 
 // ===============================
 // ADD items to Grocery List
@@ -128,11 +128,13 @@ function removeFromGroceryList(recipe) {
     }
   }
 
-  console.log("Grocery List", groceryList);
+  console.log("PRE Grocery List", groceryList);
 
   // Delete recipe div from grocery list
   gList.children()[index].remove();  
-  groceryList.children()[index].remove();
+  groceryList[index].remove();
+
+  console.log("POST Grocery List", groceryList);
 }
 
 
