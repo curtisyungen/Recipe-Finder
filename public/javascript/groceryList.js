@@ -309,27 +309,10 @@ $(document).on("click", ".deleteBtn", function (event) {
 
 $("#email").on("click", function() {
 
-  console.log(groceryList);
-
   let href = 
-    `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.parse(groceryList)}.`;
+    `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.parse(groceryList)}`;
 
   $(this).attr("href", href);
-
-  // for (var item in groceryList) {
-
-  //   let nodes = groceryList[item][0].children[2].childNodes;
-  //   let recipeName = groceryList[item][0].children[1].innerText;
-  //   let ingredients = [];
-
-  //   for (var node in nodes) {
-  //     if (nodes[node].data) {
-  //       ingredients.push(nodes[node].data);
-  //     }
-  //   }
-
-  //   console.log(recipeName, ingredients);
-  // }
 });
 
 
