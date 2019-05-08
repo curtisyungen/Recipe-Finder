@@ -21,6 +21,16 @@ var dummyRecipe = {
 
 addToGroceryList(dummyRecipe);
 
+$(document).on("ready", function() {
+
+  let localData = JSON.parse(localStorage.getItem("groceryList"));
+  console.log(localData);
+
+  
+
+});
+
+
 // ===============================
 // GET USER INFO FROM LOCAL STORAGE
 // ===============================
@@ -109,9 +119,6 @@ function addToGroceryList(recipe) {
     }
 
     groceryList.push(recipeEntry);
-
-    console.log("Grocery List", groceryList);
-
     localStorage.setItem("groceryList", JSON.stringify(groceryList));
   }
 }
