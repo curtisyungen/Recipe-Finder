@@ -148,6 +148,8 @@ function removeFromGroceryList(recipe) {
   gList.children()[index].remove();  
   groceryList[index - 1].remove();
 
+  console.log("INDEX", index);
+
   localStorage.setItem("groceryList", groceryList);
 }
 
