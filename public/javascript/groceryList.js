@@ -295,10 +295,7 @@ $("#email").on("click", function() {
   let nodes = groceryList[item][0].children[2].childNodes;
 
   for (var item in groceryList) {
-    for (var node in nodes.length) {
-      console.log(nodes[node].data);
-    }
-    
+    console.log(groceryList[item][0].children[2].childNodes);
   }
 });
 
