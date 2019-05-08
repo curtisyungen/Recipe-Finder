@@ -289,6 +289,10 @@ $(document).on("click", ".deleteBtn", function (event) {
 // ===============================
 
 $("#email").on("click", function() {
-  console.log($("#groceryList").children());
+  var groceryList = $("#groceryList").children();
+
+  for (var recipe in groceryList) {
+    console.log(groceryList[recipe].dataset);
+  }
 });
 
