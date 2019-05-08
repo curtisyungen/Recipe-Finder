@@ -293,7 +293,9 @@ $(document).on("click", ".deleteBtn", function (event) {
 $("#email").on("click", function() {
 
   for (var item in groceryList) {
+
     let nodes = groceryList[item][0].children[2].childNodes;
+    let recipeName = groceryList[item][0].children[1].innerText;
     let ingredients = [];
 
     for (var node in nodes) {
@@ -302,9 +304,7 @@ $("#email").on("click", function() {
       }
     }
 
-    console.log(ingredients);
-
-    console.log("List", groceryList[item][0].children);
+    console.log(recipeName, ingredients);
   }
 });
 
