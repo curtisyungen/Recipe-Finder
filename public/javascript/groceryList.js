@@ -255,7 +255,7 @@ function crossOffList() {
 $(document).on("click", ".deleteBtn", function (event) {
   event.preventDefault();
 
-  console.log("Parent", $(this).parent());
+  removeFromGroceryList($(this).parent().dataset);
 
   $(this).parent().remove();
 
