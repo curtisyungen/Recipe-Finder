@@ -19,17 +19,6 @@ var dummyRecipe = {
   ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
 }
 
-$(document).ready(function() {
-
-  let localData = JSON.parse(localStorage.getItem("groceryList"));
-
-  for (var i in localData) {
-    addToGroceryList(localData[i]);
-  }
-
-});
-
-
 // ===============================
 // GET USER INFO FROM LOCAL STORAGE
 // ===============================
@@ -41,21 +30,18 @@ var user = {
 };
 
 // ===============================
-// LOAD USER'S LIST UPON PAGE LOAD
+// GET RECIPE LIST FROM LOCAL STORAGE
 // ===============================
 
-// function getGroceryList() {
+$(document).ready(function() {
 
-//     $.ajax({
-//         url: "/api/getUserRecipes/" + user.userId,
-//         method: "GET"
-//     })
-//         .then(function (response) {
-//             console.log(response);
-//         });
-// }
+  let localData = JSON.parse(localStorage.getItem("groceryList"));
 
-// getGroceryList();
+  for (var i in localData) {
+    addToGroceryList(localData[i]);
+  }
+
+});
 
 // ===============================
 // ADD items to Grocery List
@@ -119,6 +105,8 @@ function addToGroceryList(recipe) {
     }
 
     groceryList.push(recipeEntry);
+
+    // Update local storage
     localStorage.setItem("groceryList", JSON.stringify(groceryList));
   }
 }
@@ -153,6 +141,7 @@ function removeFromGroceryList(recipe) {
     }
   }
 
+  // Delete recipe from local storage
   localStorage.setItem("groceryList", JSON.stringify(groceryList));
 }
 
@@ -320,20 +309,22 @@ $(document).on("click", ".deleteBtn", function (event) {
 
 $("#email").on("click", function() {
 
-  for (var item in groceryList) {
+  console.log(groceryList);
 
-    let nodes = groceryList[item][0].children[2].childNodes;
-    let recipeName = groceryList[item][0].children[1].innerText;
-    let ingredients = [];
+  // for (var item in groceryList) {
 
-    for (var node in nodes) {
-      if (nodes[node].data) {
-        ingredients.push(nodes[node].data);
-      }
-    }
+  //   let nodes = groceryList[item][0].children[2].childNodes;
+  //   let recipeName = groceryList[item][0].children[1].innerText;
+  //   let ingredients = [];
 
-    console.log(recipeName, ingredients);
-  }
+  //   for (var node in nodes) {
+  //     if (nodes[node].data) {
+  //       ingredients.push(nodes[node].data);
+  //     }
+  //   }
+
+  //   console.log(recipeName, ingredients);
+  // }
 });
 
 
