@@ -284,3 +284,11 @@ $(document).on("click", ".deleteBtn", function (event) {
 //     });
 // }
 
+// ===============================
+// EMAIL Grocery List
+// ===============================
+
+$("#email").on("click", function() {
+  console.log(ingrList);
+});
+
