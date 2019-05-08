@@ -21,8 +21,6 @@ var dummyRecipe = {
 
 $(document).ready(function() {
 
-  addToGroceryList(dummyRecipe);
-
   let localData = JSON.parse(localStorage.getItem("groceryList"));
 
   for (var i in localData) {
