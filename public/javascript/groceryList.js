@@ -129,11 +129,12 @@ function removeFromGroceryList(recipe) {
   }
 
   console.log("PRE Grocery List", groceryList);
-  console.log("Index", index);
 
   // Delete recipe div from grocery list
   gList.children()[index].remove();  
   groceryList[index - 1].remove();
+
+  console.log("To remove", groceryList[index - 1]);
 
   console.log("POST Grocery List", groceryList);
 }
