@@ -102,6 +102,8 @@ function addToGroceryList(recipe) {
 
     // Add set of ingredients to grocery list
     $("#groceryList").append(ingrList);
+
+    groceryList.push(ingrList);
   }
 }
 
@@ -289,10 +291,7 @@ $(document).on("click", ".deleteBtn", function (event) {
 // ===============================
 
 $("#email").on("click", function() {
-  var groceryList = $("#groceryList").children();
-
-  for (var recipe in groceryList) {
-    console.log(groceryList);
-  }
+  console.log(groceryList);
 });
+
 
