@@ -23,8 +23,9 @@ $(document).ready(function() {
 
   addToGroceryList(dummyRecipe);
 
-  let localData = localStorage.getItem("groceryList");
+  let localData = JSON.parse(localStorage.getItem("groceryList"));
   console.log("Local Data", localData);
+  console.log("First Index", localData[0]);
 
 });
 
