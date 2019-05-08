@@ -147,10 +147,11 @@ function removeFromGroceryList(recipe) {
   // Delete recipe div from grocery list
   gList.children()[index].remove();  
 
-  console.log("GROCERY LIST", groceryList);
-  groceryList.splice(index, 1);
-
-  console.log("INDEX", index);
+  for (var i=0; i<groceryList.length; i++) {
+    if (groceryList[i].id == recipe.id) {
+      groceryList.splice(i, 1);
+    }
+  }
 
   localStorage.setItem("groceryList", JSON.stringify(groceryList));
 }
