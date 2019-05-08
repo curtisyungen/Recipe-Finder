@@ -148,7 +148,7 @@ function removeFromGroceryList(recipe) {
   gList.children()[index].remove();  
 
   console.log("GROCERY LIST", groceryList);
-  groceryList[index].remove();
+  groceryList.splice(index, 1);
 
   console.log("INDEX", index);
 
