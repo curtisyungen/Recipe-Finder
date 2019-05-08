@@ -152,7 +152,7 @@ function removeFromGroceryList(recipe) {
 
   console.log("INDEX", index);
 
-  localStorage.setItem("groceryList", groceryList);
+  localStorage.setItem("groceryList", JSON.stringify(groceryList));
 }
 
 
