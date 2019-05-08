@@ -312,7 +312,7 @@ $("#email").on("click", function() {
   console.log(groceryList);
 
   let href = 
-    `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.stringify(groceryList)}.`;
+    `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.parse(groceryList)}.`;
 
   $(this).attr("href", href);
 
