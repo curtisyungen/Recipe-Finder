@@ -103,7 +103,12 @@ function addToGroceryList(recipe) {
     // Add set of ingredients to grocery list
     $("#groceryList").append(ingrList);
 
-    groceryList.push(ingrList);
+    let recipeEntry = {
+      name: recipe.recipeName,
+      ingredients: recipe.ingredients
+    }
+
+    groceryList.push(recipeEntry);
 
     console.log("Grocery List", groceryList);
 
