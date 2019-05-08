@@ -19,9 +19,9 @@ var dummyRecipe = {
   ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
 }
 
-addToGroceryList(dummyRecipe);
-
 $(document).on("ready", function() {
+
+  addToGroceryList(dummyRecipe);
 
   let localData = JSON.parse(localStorage.getItem("groceryList"));
   console.log(localData);
