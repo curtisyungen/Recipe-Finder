@@ -293,7 +293,11 @@ $(document).on("click", ".deleteBtn", function (event) {
 $("#email").on("click", function() {
 
   for (var item in groceryList) {
-    console.log(groceryList[item][0].children[2].childNodes);
+    let nodes = groceryList[item][0].children[2].childNodes;
+
+    for (var node in nodes) {
+      console.log(nodes[node].data);
+    }
   }
 });
 
