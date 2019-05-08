@@ -311,6 +311,11 @@ $("#email").on("click", function() {
 
   console.log(groceryList);
 
+  let href = 
+    `mailto:${user.userEmail}?subject=Grocery List&body=${groceryList}.`;
+
+  $(this).attr("href", href);
+
   // for (var item in groceryList) {
 
   //   let nodes = groceryList[item][0].children[2].childNodes;
