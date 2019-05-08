@@ -89,3 +89,9 @@ color: black;
     position: absolute;
     right: 25px;
 }
+
+.email {
+    cursor: pointer;
+    float: right;
+    position: absolute;
+}
