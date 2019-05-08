@@ -104,6 +104,8 @@ function addToGroceryList(recipe) {
     $("#groceryList").append(ingrList);
 
     groceryList.push(ingrList);
+
+    localStorage.setItem("groceryList", groceryList);
   }
 }
 
