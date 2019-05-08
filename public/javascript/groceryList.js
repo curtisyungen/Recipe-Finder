@@ -255,6 +255,8 @@ function crossOffList() {
 $(document).on("click", ".deleteBtn", function (event) {
   event.preventDefault();
 
+  console.log("Parent", $(this).parent());
+
   $(this).parent().remove();
 
 });
