@@ -128,9 +128,10 @@ function removeFromGroceryList(recipe) {
     }
   }
 
-  // Delete recipe div from grocery list
-  gList.children()[index].remove();
   console.log("Grocery List", groceryList);
+
+  // Delete recipe div from grocery list
+  gList.children()[index].remove();  
   groceryList.children()[index].remove();
 }
 
