@@ -10,16 +10,6 @@ var viewRecipeBtn;
 var deleteBtn;
 
 // ===============================
-// DUMMY RECIPE FOR DEVELOPMENT USE ONLY
-// ===============================
-
-var dummyRecipe = {
-  recipeName: "Dummy Recipe",
-  id: "1234",
-  ingredients: ["ingr1", "ingr2", "ingr3", "ingr4", "ingr5"]
-}
-
-// ===============================
 // GET USER INFO FROM LOCAL STORAGE
 // ===============================
 
@@ -59,48 +49,38 @@ function addToGroceryList(recipe) {
     ingrList = $("<div>")
       .addClass("ingrList")
       .attr("data-name", recipe.recipeName)
-      .attr("data-id", recipe.id)
-      .attr("data-status", "closed");
+      .attr("data-id", recipe.id);
+      // .attr("data-status", "closed");
 
     // Set up div to hold text for ingredient list
     // Separate div so it can be hidden when box is collapsed
-    ingrListText = $("<div>")
-      .addClass("ingrListText");
+    // ingrListText = $("<div>")
+    //   .addClass("ingrListText");
 
     // Populate list of ingredients
-    for (var item in recipe.ingredients) {
-      ingrListText
-        .append(recipe.ingredients[item])
-        .append("<br>");
-    }
-
-    // Store number of items in list for later height calculation
-    ingrListText.attr("data-numItems", recipe.ingredients.length);
-
-    // Create buttons
-    viewRecipeBtn = $("<div>")
-      .addClass("viewRecipeBtn")
-      .addClass("fas fa-list-ul fa-2x");
+    // for (var item in recipe.ingredients) {
+    //   ingrListText
+    //     .append(recipe.ingredients[item])
+    //     .append("<br>");
+    // }
 
     deleteBtn = $("<div>")
       .addClass("deleteBtn")
       .addClass("fas fa-times fa-2x");
 
-    showHideBtn = $("<div>").addClass("fas fa-angle-down fa-2x showHideBtn");
-
     // Add recipe title and list of ingredients to list div
     ingrList
-      .append(deleteBtn)
       .append(`<h4 class="gListName" data-recipeId="${recipe.id}">${recipe.recipeName}</h4>`)
-      .append(ingrListText);
+      .append(deleteBtn);
 
-    // Add set of ingredients to grocery list
+    // Add recipe to list
     $("#groceryList").append(ingrList);
 
     let recipeEntry = {
       id: recipe.id,
       recipeName: recipe.recipeName,
-      ingredients: recipe.ingredients
+      ingredients: recipe.ingredients,
+      rating: recipe.rating
     }
 
     groceryList.push(recipeEntry);
@@ -143,7 +123,6 @@ function removeFromGroceryList(recipe) {
   // Delete recipe from local storage
   localStorage.setItem("groceryList", JSON.stringify(groceryList));
 }
-
 
 // ===============================
 // EXPAND / COLLAPSE ITEMS IN LIST
@@ -233,29 +212,29 @@ function removeFromGroceryList(recipe) {
 
 //** Event listener for when an ingredient is tapped by user
 
-$(document).on("click", ".ingredient", crossOffList);
+// $(document).on("click", ".ingredient", crossOffList);
 
-// This function toggles whether or not an item in grocery list is crossed out or not.
-// Called when user taps individual item in list.
+// // This function toggles whether or not an item in grocery list is crossed out or not.
+// // Called when user taps individual item in list.
 
-function crossOffList() {
+// function crossOffList() {
 
-  var ingredient = $(this);
+//   var ingredient = $(this);
 
-  // If ingredient not yet crossed off, cross it off list
-  if (ingredient.attr("data-crossed") == "false") {
-    ingredient.css("color", "lightgray");
-    ingredient.css("text-decoration", "line-through");
-    ingredient.attr("data-crossed", "true");
-  }
+//   // If ingredient not yet crossed off, cross it off list
+//   if (ingredient.attr("data-crossed") == "false") {
+//     ingredient.css("color", "lightgray");
+//     ingredient.css("text-decoration", "line-through");
+//     ingredient.attr("data-crossed", "true");
+//   }
 
-  // If ingredient already crossed off, uncross it
-  else {
-    ingredient.css("color", "#086DE0");
-    ingredient.css("text-decoration", "none");
-    ingredient.attr("data-crossed", "false");
-  }
-}
+//   // If ingredient already crossed off, uncross it
+//   else {
+//     ingredient.css("color", "#086DE0");
+//     ingredient.css("text-decoration", "none");
+//     ingredient.attr("data-crossed", "false");
+//   }
+// }
 
 // =========================================
 // DELETE Individual Entry from Grocery List
@@ -263,8 +242,6 @@ function crossOffList() {
 
 $(document).on("click", ".deleteBtn", function (event) {
   event.preventDefault();
-
-  console.log($(this).parent()[0].dataset);
 
   removeFromGroceryList($(this).parent()[0].dataset);
 
