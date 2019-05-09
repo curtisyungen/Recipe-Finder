@@ -31,8 +31,8 @@ function showRecipeDetail(id) {
             }
         }
     }
-    else if (isNaN(id)) {
-        recipeId = id;
+    else if (isNaN(id.id)) {
+        recipeId = id.id;
     }
     else {
         selectedRecipe = recipeArray[id];
