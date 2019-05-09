@@ -24,12 +24,17 @@ $(document).on("click", ".gListName", showRecipeDetailFromList);
 
 function showRecipeDetailFromList() {
     var id = $(this).attr("data-recipeId");
+    var savedRecipes = localStorage.getItem("groceryList");
 
-    var recipe = {
-        id: id
+    console.log(savedRecipes);
+
+    for (var i in savedRecipes) {
+      if (id == savedRecipes[i].id) {
+        showRecipeDetail(savedRecipes[i]);
+      }
     }
 
-    showRecipeDetail(recipe);
+    
 }
 
 // =========================
