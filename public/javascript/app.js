@@ -24,7 +24,7 @@ $(document).on("click", ".gListName", showRecipeDetailFromList);
 
 function showRecipeDetailFromList() {
     var id = $(this).attr("data-recipeId");
-    var savedRecipes = JSON.stringify(localStorage.getItem("groceryList"));
+    var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
 
     console.log(savedRecipes);
 
