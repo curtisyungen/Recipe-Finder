@@ -28,27 +28,31 @@ $(document).on("click", ".ingrList", function () {
 
 function showRecipeDetail(id) {
 
-    console.log(id.id);
-
     $("#recipeDetail").empty();
 
     var selectedRecipe;
+    var recipeID;
 
-    if (isNaN(id)) {
+    if (isNaN(id) && selectedArray.length > 0) {
         for (var i in selectedArray) {
             if (selectedArray[i].id == id.id) {
                 selectedRecipe = selectedArray[i];
                 id = id.id;
+                recipeID = selectedRecipe.id;
             }
         }
     }
+    else if (isNaN(id)) {
+        recipeID = id;
+    }
     else {
         selectedRecipe = recipeArray[id];
+        recipeID = selectedRecipe.id;
     }
 
     // ======== GET RECIPE API QUERY ========
 
-    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${selectedRecipe.id}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
+    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${recipeID}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
 
     $.ajax({
         url: getRecipeUrl,
