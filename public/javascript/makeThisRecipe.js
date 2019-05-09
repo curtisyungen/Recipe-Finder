@@ -28,7 +28,7 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
             .addClass("btn btn-primary")
             .attr("data-status", "make")
             .attr("data-selectedArrayIdx", "-1")
-            .text("Make This Recipe");
+            .text("Favorite");
 
         // Remove this recipe from grocery list
         removeFromGroceryList(selectedRecipe);
@@ -44,7 +44,7 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
             .addClass("btn btn-success")
             .attr("data-status", "added")
             .attr("data-selectedArrIdx", selectedArray.length - 1)
-            .text("Added to List");
+            .text("Favorited");
 
         // Add selected recipe to grocery list
         addToGroceryList(selectedRecipe);
