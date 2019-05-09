@@ -92,7 +92,7 @@ function showRecipeDetail(id) {
             var makeThisRecipe = $("<div>")
                 .addClass("makeThisRecipeBtn")
                 .addClass(buttonClass)
-                .attr("data-recipeArrayIdx", id)
+                .attr("data-recipeId", selectedRecipe.id)
                 .attr("data-status", buttonStatus)
                 .text(buttonText);
 

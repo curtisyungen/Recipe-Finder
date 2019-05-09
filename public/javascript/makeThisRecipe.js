@@ -15,6 +15,11 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
     // Identify the recipe that was selected and store in variable
     var selectedRecipe = recipeArray[recipeArrayIdx];
 
+    var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
+    var recipeId = $(this).attr("data-recipeId");
+
+    console.log(recipeId, savedRecipes);
+
     // Update class to toggle make/add button
     if ($this.attr("data-status") == "added") {
 
