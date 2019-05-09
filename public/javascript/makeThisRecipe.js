@@ -11,13 +11,25 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
     var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
     var recipeId = $this.attr("data-recipeId");
 
-    for (var i in savedRecipes) {
-        if (recipeId == savedRecipes[i].id) {
-            selectedRecipe = savedRecipes[i];
+    if (savedRecipes) {
+
+        selectedArray = savedRecipes;
+
+        for (var i in savedRecipes) {
+            if (recipeId == savedRecipes[i].id) {
+                selectedRecipe = savedRecipes[i];
+            }
         }
     }
 
-    selectedArray = savedRecipes;
+    if (recipeArray) {
+
+        for (var i in recipeArray) {
+            if (recipeId == recipeArray[i].id) {
+                selectedRecipe = recipeArray[i];
+            }
+        }
+    }
 
     // Update class to toggle make/add button
     if ($this.attr("data-status") == "added") {
@@ -27,7 +39,6 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
             .removeClass("btn btn-success")
             .addClass("btn btn-primary")
             .attr("data-status", "make")
-            .attr("data-selectedArrayIdx", "-1")
             .text("Favorite");
 
         // Remove this recipe from grocery list
@@ -40,7 +51,6 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
             .removeClass("btn btn-primary")
             .addClass("btn btn-success")
             .attr("data-status", "added")
-            .attr("data-selectedArrIdx", selectedArray.length - 1)
             .text("Favorited");
 
         // Add selected recipe to grocery list
