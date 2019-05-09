@@ -31,7 +31,6 @@ function showRecipeDetail(id) {
     $("#recipeDetail").empty();
 
     var selectedRecipe;
-    console.log(recipeArray);
 
     if (isNaN(id)) {
         for (var i in selectedArray) {
@@ -47,7 +46,7 @@ function showRecipeDetail(id) {
 
     // ======== GET RECIPE API QUERY ========
 
-    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${selectedRecipe.id}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
+    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${selectedRecipe.id || id}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
 
     $.ajax({
         url: getRecipeUrl,
