@@ -57,8 +57,13 @@ function showRecipeDetail(id) {
                     opacity: 0
                 }, 200);
 
-            selectedRecipe = response;
-
+            selectedRecipe = {
+                recipeName: "fuck",
+                rating: 5,
+                id: 1,
+                servings: 69,
+                ingredients: [1, 2, 3]
+            };
 
             // ======== LARGER IMAGE ========
 
