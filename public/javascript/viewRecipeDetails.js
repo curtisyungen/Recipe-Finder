@@ -16,14 +16,14 @@ $(document).on("click", ".recipeDiv", function () {
 });
 
 function showRecipeDetail(id) {
-    
+
     $("#recipeDetail").empty();
 
     var selectedRecipe;
     var recipeId; 
 
-    if (isNaN(id) && recipeArray) {
-        console.log(1);
+    if (isNaN(id) && recipeArray != null) {
+        console.log(1, recipeArray);
         for (var i in selectedArray) {
             if (selectedArray[i].id == id.id) {
                 selectedRecipe = selectedArray[i];
