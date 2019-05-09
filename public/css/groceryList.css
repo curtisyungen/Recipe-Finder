@@ -10,13 +10,13 @@
 }
 
 .deleteBtn {
-    color: rgb(197, 0, 0);
+    /* color: rgb(197, 0, 0); */
     cursor: pointer;
-    display: none;
-    margin-top: 0px;
+    float: right;
+    margin: 5px;
+    margin-right: 10px;
     opacity: 0;
     position: absolute;
-    right: 25px;
 }
 
 #groceryList {
