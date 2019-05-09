@@ -34,7 +34,7 @@ function showRecipeDetailFromList() {
       }
     }
 
-    console.log(id, savedRecipes[0].id);
+    console.log(id, savedRecipes[0]);
     
 }
 
