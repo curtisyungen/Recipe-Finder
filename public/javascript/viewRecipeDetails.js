@@ -20,24 +20,28 @@ function showRecipeDetail(id) {
     $("#recipeDetail").empty();
 
     var selectedRecipe;
+    var recipeId; 
 
-    console.log(recipeArray);
-
-    if (isNaN(id)) {
+    if (isNaN(id) && recipeArray.length > 0) {
         for (var i in selectedArray) {
             if (selectedArray[i].id == id.id) {
                 selectedRecipe = selectedArray[i];
+                recipeId = selectedRecipe.id;
                 id = id.id;
             }
         }
     }
+    else if (isNaN(id)) {
+        recipeId = id;
+    }
     else {
         selectedRecipe = recipeArray[id];
+        recipeId = selectedRecipe.id;
     }
 
     // ======== GET RECIPE API QUERY ========
 
-    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${selectedRecipe.id}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
+    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${recipeId}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
 
     $.ajax({
         url: getRecipeUrl,
@@ -49,6 +53,8 @@ function showRecipeDetail(id) {
                 .animate({
                     opacity: 0
                 }, 200);
+
+            selectedRecipe = response;
 
 
             // ======== LARGER IMAGE ========
