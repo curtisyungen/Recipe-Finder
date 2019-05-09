@@ -7,25 +7,20 @@
 $(document).on("click", ".makeThisRecipeBtn", function () {
 
     var $this = $(this);
-
-    // Get index of selected recipe in recipe array
-    // This allows us to get its attributes
-    var recipeArrayIdx = $this.attr("data-recipeArrayIdx");
-
-    // Identify the recipe that was selected and store in variable
-    var selectedRecipe = recipeArray[recipeArrayIdx];
-
+    
     var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
-    var recipeId = $(this).attr("data-recipeId");
+    var recipeId = $this.attr("data-recipeId");
 
-    console.log(recipeId, savedRecipes);
+    for (var i in savedRecipes) {
+        if (recipeId == savedRecipes[i].id) {
+            selectedRecipe = savedRecipes[i];
+        }
+    }
+
+    selectedArray = savedRecipes;
 
     // Update class to toggle make/add button
     if ($this.attr("data-status") == "added") {
-
-        // Remove this recipe from Selected Array
-        var index = $this.attr("data-selectedArrIdx");
-        selectedArray.splice(index, 1);
 
         // Update button classes and attributes
         $this
@@ -39,9 +34,6 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
         removeFromGroceryList(selectedRecipe);
     }
     else if ($this.attr("data-status") == "make") {
-
-        // Push selected recipe to Selected Array
-        selectedArray.push(selectedRecipe);
 
         // Update button classes and attributes
         $this
