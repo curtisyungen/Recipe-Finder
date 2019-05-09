@@ -26,6 +26,10 @@ function showRecipeDetailFromList() {
     var id = $(this).attr("data-recipeId");
     var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
 
+    $("#recipeDetail").animate({
+      opacity: 0.90
+    }, 100);
+
     for (var i in savedRecipes) {
       if (id == savedRecipes[i].id) {
         showRecipeDetail(savedRecipes[i]);
