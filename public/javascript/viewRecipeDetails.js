@@ -20,31 +20,22 @@ function showRecipeDetail(id) {
     $("#recipeDetail").empty();
 
     var selectedRecipe;
-    var recipeId; 
 
-    if (isNaN(id) && selectedArray.length > 0) {
-        console.log(1, recipeArray);
+    if (isNaN(id)) {
         for (var i in selectedArray) {
             if (selectedArray[i].id == id.id) {
                 selectedRecipe = selectedArray[i];
-                recipeId = selectedRecipe.id;
                 id = id.id;
             }
         }
     }
-    else if (isNaN(id)) {
-        console.log(2);
-        recipeId = id.id;
-    }
     else {
-        console.log(3);
         selectedRecipe = recipeArray[id];
-        recipeId = selectedRecipe.id;
     }
 
     // ======== GET RECIPE API QUERY ========
 
-    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${recipeId}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
+    var getRecipeUrl = `https://api.yummly.com/v1/api/recipe/${selectedRecipe.id}?_app_id=${APP_ID}&_app_key=${APP_KEY}`;
 
     $.ajax({
         url: getRecipeUrl,
@@ -57,13 +48,6 @@ function showRecipeDetail(id) {
                     opacity: 0
                 }, 200);
 
-            selectedRecipe = {
-                recipeName: "fuck",
-                rating: 5,
-                id: 1,
-                servings: 69,
-                ingredients: [1, 2, 3]
-            };
 
             // ======== LARGER IMAGE ========
 
