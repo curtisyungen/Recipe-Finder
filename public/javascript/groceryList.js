@@ -90,10 +90,9 @@ function addToGroceryList(recipe) {
 
     // Add recipe title and list of ingredients to list div
     ingrList
-      .append(showHideBtn)
+      .append(deleteBtn)
       .append(`<h4 class="gListName" data-recipeId="${recipe.id}">${recipe.recipeName}</h4>`)
-      .append(ingrListText)
-      .append(deleteBtn);
+      .append(ingrListText);
 
     // Add set of ingredients to grocery list
     $("#groceryList").append(ingrList);
@@ -150,83 +149,83 @@ function removeFromGroceryList(recipe) {
 // EXPAND / COLLAPSE ITEMS IN LIST
 // ===============================
 
-$(document).on("click", ".showHideBtn", showHideList);
+// $(document).on("click", ".showHideBtn", showHideList);
 
-function showHideList() {
+// function showHideList() {
 
-  // Identify list whose button was clicked
-  var targetList = $(this).parent();
-  var showHideBtn = targetList.children(".showHideBtn");
-  var listStatus = targetList.attr("data-status");
+//   // Identify list whose button was clicked
+//   var targetList = $(this).parent();
+//   var showHideBtn = targetList.children(".showHideBtn");
+//   var listStatus = targetList.attr("data-status");
 
-  // If list is collapsed, expand it
-  if (listStatus == "closed") {
+//   // If list is collapsed, expand it
+//   if (listStatus == "closed") {
 
-    // Calculate required height for expansion based on number of ingredients
-    // 16 is font size
-    // 50 is initial div height
-    // 40 is padding-top and bottom
-    var height = targetList.children(".ingrListText").attr("data-numItems") * 16 + 50 + 40 + 20;
+//     // Calculate required height for expansion based on number of ingredients
+//     // 16 is font size
+//     // 50 is initial div height
+//     // 40 is padding-top and bottom
+//     var height = targetList.children(".ingrListText").attr("data-numItems") * 16 + 50 + 40 + 20;
 
-    // Expand the list
-    targetList.animate({
-      height: height
-    }, 500);
+//     // Expand the list
+//     targetList.animate({
+//       height: height
+//     }, 500);
 
-    // Flip arrow icon
-    showHideBtn
-      .removeClass("fas fa-angle-down")
-      .addClass("fas fa-angle-up");
+//     // Flip arrow icon
+//     showHideBtn
+//       .removeClass("fas fa-angle-down")
+//       .addClass("fas fa-angle-up");
 
-    // Fade in ingredient list
-    targetList.children(".ingrListText")
-      .show()
-      .animate({
-        opacity: 1
-      }, 500);
+//     // Fade in ingredient list
+//     targetList.children(".ingrListText")
+//       .show()
+//       .animate({
+//         opacity: 1
+//       }, 500);
 
-    // Fade in delete button
-    targetList.children(".deleteBtn")
-      .show()
-      .animate({
-        opacity: 1
-      }, 500);
+//     // Fade in delete button
+//     targetList.children(".deleteBtn")
+//       .show()
+//       .animate({
+//         opacity: 1
+//       }, 500);
 
-    // Update attribute to show this div is expanded
-    targetList.attr("data-status", "open");
-  }
+//     // Update attribute to show this div is expanded
+//     targetList.attr("data-status", "open");
+//   }
 
-  // If list is expanded, collapse it
-  else if (listStatus == "open") {
+//   // If list is expanded, collapse it
+//   else if (listStatus == "open") {
 
-    // Collapse list
-    targetList.animate({
-      height: 50
-    }, 500);
+//     // Collapse list
+//     targetList.animate({
+//       height: 50
+//     }, 500);
 
-    // Flip arrow icon
-    showHideBtn
-      .removeClass("fas fa-angle-up")
-      .addClass("fas fa-angle-down");
+//     // Flip arrow icon
+//     showHideBtn
+//       .removeClass("fas fa-angle-up")
+//       .addClass("fas fa-angle-down");
 
-    // Fade out ingredient list
-    targetList.children(".ingrListText")
-      .animate({
-        opacity: 0
-      }, 500)
-      .hide();
+//     // Fade out ingredient list
+//     targetList.children(".ingrListText")
+//       .animate({
+//         opacity: 0
+//       }, 500)
+//       .hide();
 
-    // Fade out delete button
-    targetList.children(".deleteBtn")
-      .animate({
-        opacity: 0
-      }, 500)
-      .hide();
+//     // Fade out delete button
+//     targetList.children(".deleteBtn")
+//       .animate({
+//         opacity: 0
+//       }, 500)
+//       .hide();
 
-    // Update attribute to show div is collapsed
-    targetList.attr("data-status", "closed");
-  }
-}
+//     // Update attribute to show div is collapsed
+//     targetList.attr("data-status", "closed");
+//   }
+// }
 
 // ===============================
 // Grocery List Functionality
@@ -307,12 +306,12 @@ $(document).on("click", ".deleteBtn", function (event) {
 // EMAIL Grocery List
 // ===============================
 
-$("#email").on("click", function() {
+// $("#email").on("click", function() {
 
-  let href = 
-    `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.stringify(groceryList)}`;
+//   let href = 
+//     `mailto:${user.userEmail}?subject=Grocery List&body=${JSON.stringify(groceryList)}`;
 
-  $(this).attr("href", href);
-});
+//   $(this).attr("href", href);
+// });
 
 
