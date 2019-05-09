@@ -15,6 +15,17 @@ $(document).on("click", ".recipeDiv", function () {
     showRecipeDetail(id);
 });
 
+$(document).on("click", ".ingrList", function () {
+
+    var id = $(this).attr("data-id");
+
+    $("#recipeDetail").animate({
+        opacity: 0.90
+    }, 100);
+
+    showRecipeDetail(id);
+});
+
 function showRecipeDetail(id) {
 
     $("#recipeDetail").empty();
