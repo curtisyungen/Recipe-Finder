@@ -120,6 +120,8 @@ function removeFromGroceryList(recipe) {
     }
   }
 
+  console.log(groceryList);
+
   // Delete recipe from local storage
   localStorage.setItem("groceryList", JSON.stringify(groceryList));
 }
