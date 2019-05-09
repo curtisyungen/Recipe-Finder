@@ -22,12 +22,7 @@ function showRecipeDetail(id) {
     var selectedRecipe;
 
     if (isNaN(id)) {
-        for (var i in selectedArray) {
-            if (selectedArray[i].id == id.id) {
-                selectedRecipe = selectedArray[i];
-                id = id.id;
-            }
-        }
+        selectedRecipe = id;
     }
     else {
         selectedRecipe = recipeArray[id];
