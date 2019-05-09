@@ -75,7 +75,7 @@ function showRecipeDetail(id) {
             // ======== MAKE THIS RECIPE BUTTON ========
 
             var buttonClass = "btn btn-primary btn-sm";
-            var buttonText = "Make This Recipe";
+            var buttonText = "Favorite";
             var buttonStatus = "make";
 
             for (var i = 0; i < $("#groceryList").children().length; i++) {
@@ -83,7 +83,7 @@ function showRecipeDetail(id) {
                 if ($("#groceryList").children()[i].dataset.id == selectedRecipe.id) {
 
                     buttonClass = "btn btn-success btn-sm";
-                    buttonText = "Added to List";
+                    buttonText = "Favorited";
                     buttonStatus = "added";
                 }
             }
