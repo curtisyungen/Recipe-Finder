@@ -31,6 +31,7 @@ function showRecipeDetail(id) {
     $("#recipeDetail").empty();
 
     var selectedRecipe;
+    console.log(recipeArray);
 
     if (isNaN(id)) {
         for (var i in selectedArray) {
