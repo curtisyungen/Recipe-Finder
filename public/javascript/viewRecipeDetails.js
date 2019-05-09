@@ -17,6 +17,8 @@ $(document).on("click", ".recipeDiv", function () {
 
 function showRecipeDetail(id) {
 
+    console.log(id);
+
     $("#recipeDetail").empty();
 
     var selectedRecipe;
@@ -31,7 +33,7 @@ function showRecipeDetail(id) {
             }
         }
     }
-    else if (isNaN(id.id)) {
+    else if (isNaN(id)) {
         recipeId = id.id;
     }
     else {
