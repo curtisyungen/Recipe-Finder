@@ -28,7 +28,7 @@ $(document).on("click", ".ingrList", function () {
 
 function showRecipeDetail(id) {
 
-    console.log(id);
+    console.log(id.id);
 
     $("#recipeDetail").empty();
 
