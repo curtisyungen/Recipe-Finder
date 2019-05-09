@@ -22,7 +22,7 @@ function showRecipeDetail(id) {
     var selectedRecipe;
     var recipeId; 
 
-    if (isNaN(id) && recipeArray != null) {
+    if (isNaN(id) && selectedArray.length > 0) {
         console.log(1, recipeArray);
         for (var i in selectedArray) {
             if (selectedArray[i].id == id.id) {
