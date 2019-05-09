@@ -27,14 +27,15 @@ function showRecipeDetailFromList() {
     var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
 
     console.log(savedRecipes);
+    console.log(id, savedRecipes[0]);
 
     for (var i in savedRecipes) {
       if (id == savedRecipes[i].id) {
-        showRecipeDetail(savedRecipes[i]);
+        showRecipeDetail(savedRecipes[i].id);
       }
     }
 
-    console.log(id, savedRecipes[0]);
+    
     
 }
 
