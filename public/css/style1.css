@@ -107,9 +107,8 @@ span {
 /* NAVBAR */
 
 .g-signin2 {
-    clear: both;
-    float: right;
-    margin-right: 50px;
+    margin-top: 25%;
+    transform: translate(50%);
     z-index: 99;
   }
 
@@ -145,6 +144,8 @@ span {
     position: absolute;
     right: 45px;
 }
+
+
 
 
 
