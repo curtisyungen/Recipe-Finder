@@ -103,7 +103,6 @@ module.exports = function (app) {
             email: newUser.email
           }
         })
-          .spread(user, created)
           .then(function (dbUser) {
             res.end(dbUser);
           });
