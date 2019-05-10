@@ -108,10 +108,16 @@ span {
 
 .g-signin2 {
     margin-top: 25%;
-    transform: translate(50%);
-    transform: translate(-100px);
     z-index: 99;
   }
+
+#loginTitle {
+    font-size: 48px;
+}
+
+#loginPageContent {
+    text-align: center;
+}
 
 .navbar {
     border: 0px;
