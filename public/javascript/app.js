@@ -56,7 +56,7 @@ var auth2;
 window.onLoadCallback = function () {
   gapi.load('auth2', function () {
     auth2 = gapi.auth2.init({
-      client_id: '652830140760-dsctgrl977qamnp3q9auc63dr6oiqte7.apps.googleusercontent.com',
+      client_id: '652830140760-61c6se585jro0384ut65rl6ghqcs9k2g.apps.googleusercontent.com',
       scope: 'profile',
       fetch_basic_profile: false
     });
