@@ -1,8 +1,7 @@
 ## Curtis Yungen
-### Grocery List
+### Recipe Finder
 
-This website is a simple way to search for Recipes and add their ingredients to a Grocery List.
-It uses the Yummly API to access recipe data.
+This website is a simple way to search for recipes, view their details, and add them to a list of favorites.
 
 ### View in Github Pages
 This project is deployed on Heroku. Take a look here: https://best-recipe-finder.herokuapp.com/
