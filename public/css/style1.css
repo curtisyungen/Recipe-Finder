@@ -109,6 +109,7 @@ span {
 .g-signin2 {
     margin-top: 25%;
     transform: translate(50%);
+    transform: translate(-100px);
     z-index: 99;
   }
 
