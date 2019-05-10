@@ -20,8 +20,8 @@
 }
 
 #groceryList {
-    background: lightyellow;
-    border: 1px solid darkgray;
+/*     background: lightyellow; */
+/*     border: 1px solid darkgray; */
     display: inline-block;
     height: auto;
     margin-top: 10px;
@@ -55,7 +55,7 @@ color: black;
 }
 
 .ingrList {
-    /* background: rgb(248, 248, 248); */
+    background: rgb(248, 248, 248);
     border: 1px dashed darkgray;
     border-left: 0px;
     border-right: 0px;
