@@ -20,17 +20,23 @@ var user = {
 };
 
 // ===============================
-// GET RECIPE LIST FROM LOCAL STORAGE
+// GET RECIPE LIST FROM DATABASE
 // ===============================
 
 $(document).ready(function() {
 
-  let localData = JSON.parse(localStorage.getItem("groceryList"));
-
-  for (var i in localData) {
-    addToGroceryList(localData[i]);
-  }
-
+  $.ajax({
+    url: "/api/getRecipes/" + user.userId,
+    method: "GET"
+  })
+    .then(function(res) {
+      for (var recipe in res) {
+        addToGroceryList(res[recipe]);
+      }
+    })
+    .catch((err) => {
+      console.log("Error getting recipes", err);
+    });
 });
 
 // ===============================
@@ -80,7 +86,8 @@ function addToGroceryList(recipe) {
       id: recipe.id,
       recipeName: recipe.recipeName,
       ingredients: recipe.ingredients,
-      rating: recipe.rating
+      rating: recipe.rating,
+      recipeId: recipe.recipeId
     }
 
     groceryList.push(recipeEntry);
@@ -119,8 +126,6 @@ function removeFromGroceryList(recipe) {
       groceryList.splice(i, 1);
     }
   }
-
-  console.log(groceryList);
 
   // Delete recipe from local storage
   localStorage.setItem("groceryList", JSON.stringify(groceryList));

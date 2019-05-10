@@ -140,6 +140,12 @@ span {
     width: 400px;
 }
 
+#signOutBtn {
+    color: white;
+    position: absolute;
+    right: 45px;
+}
+
 
 
 

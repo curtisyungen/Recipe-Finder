@@ -1,3 +1,9 @@
+var user = {
+    userId: localStorage.getItem("userId"),
+    userEmail: localStorage.getItem("userEmail"),
+    userName: localStorage.getItem("userName"),
+};
+
 // =========================
 // MAKE THIS RECIPE
 // =========================
@@ -7,7 +13,7 @@
 $(document).on("click", ".makeThisRecipeBtn", function () {
 
     var $this = $(this);
-    
+
     var savedRecipes = JSON.parse(localStorage.getItem("groceryList"));
     var recipeId = $this.attr("data-recipeId");
 
@@ -43,6 +49,18 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
 
         // Remove this recipe from grocery list
         removeFromGroceryList(selectedRecipe);
+
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "DELETE",
+            url: "/api/deleteRecipe/" + user.userId,
+            data: JSON.stringify(selectedRecipe)
+        })
+            .then(function () {
+                console.log("Done!");
+            });
     }
     else if ($this.attr("data-status") == "make") {
 
@@ -55,6 +73,17 @@ $(document).on("click", ".makeThisRecipeBtn", function () {
 
         // Add selected recipe to grocery list
         addToGroceryList(selectedRecipe);
-    }
 
+        $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "/api/postRecipe/" + user.userId,
+            data: JSON.stringify(selectedRecipe)
+        })
+            .then(function () {
+                console.log("Done!");
+            });
+    }
 });

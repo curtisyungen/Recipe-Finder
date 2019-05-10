@@ -1,8 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Recipes = sequelize.define("Recipes", {
-    name: DataTypes.STRING,
-    recipeId: DataTypes.INTEGER,
-    ingredients: DataTypes.STRING(2000)
+    recipeId: DataTypes.STRING(500),
+    recipeName: DataTypes.STRING(500),
+    ingredients: DataTypes.STRING(2000),
+    rating: DataTypes.INTEGER(5)
   });
 
   Recipes.associate = function(models) {

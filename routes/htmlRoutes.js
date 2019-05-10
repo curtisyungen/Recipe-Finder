@@ -2,9 +2,9 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-  // Home Page
+  // Login Page
   app.get("/", function(req, res) {
-    res.render("index")
+    res.render("login")
   });
 
   // Home Page

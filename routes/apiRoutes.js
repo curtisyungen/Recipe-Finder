@@ -13,8 +13,14 @@ module.exports = function (app) {
   });
 
   // Get all routes specific to user
-  app.get("/api/getUserRecipes/:id", function (req, res) {
-    db.Recipes.findAll({ where: { UserId: req.params.id } }).then(function (response) {
+  app.get("/api/getRecipes/:userId", function (req, res) {
+    db.Recipes
+    .findAll({ 
+      where: { 
+        UserId: req.params.userId 
+      } 
+    })
+    .then(function (response) {
       return res.json(response);
     });
   });
@@ -31,17 +37,41 @@ module.exports = function (app) {
   // ==========================================
 
   // Post new recipe to database
-  app.post("/api/postRecipe", function (req, res) {
+  app.post("/api/postRecipe/:userId", function (req, res) {
+
     db.Recipes.create({
-      name: req.body.name,
-      recipeId: req.body.recipeId,
-      ingredients: req.body.ingredients,
-      UserId: req.body.UserId
+      recipeName: req.body.recipeName,
+      recipeId: req.body.id,
+      ingredients: req.body.ingredients.toString(),
+      rating: req.body.rating,
+      UserId: req.params.userId
     }).then(function (dbRecipe) {
       res.json(dbRecipe);
     });
   });
+
+  // ==========================================
+  // DELETE
+  // ==========================================
   
+  // Delete a recipe by id
+  app.delete("/api/deleteRecipe/:userId", function (req, res) {
+    db.Recipes
+      .destroy({ 
+        where: { 
+          UserId: req.params.userId, 
+          recipeId: req.body.recipeId 
+        } 
+      })
+      .then(function (dbRecipe) {
+        res.json(dbRecipe);
+      });
+  });
+
+  // ==========================================
+  // USER LOGIN
+  // ==========================================
+
   // Create new user with a validation to check if that user's ID already exists in the database. 
   // Return false if an user with same email has been found
   app.post("/api/login", function (req, res) {
@@ -79,15 +109,6 @@ module.exports = function (app) {
           });
       });
   });
-
-  // ==========================================
-  // DELETE
-  // ==========================================
-  
-  // Delete a recipe by id
-  app.delete("/api/deleteRecipe/:id", function (req, res) {
-    db.Recipes.destroy({ where: { id: req.params.id } }).then(function (dbRecipe) {
-      res.json(dbRecipe);
-    });
-  });
 };
+
+
