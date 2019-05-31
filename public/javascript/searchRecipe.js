@@ -43,7 +43,9 @@ $("#searchBtn").on("click", function (event) {
     }
 });
 
-$("#filterBtn").modal("toggle");
+$("#filterBtn").on("click", function() {
+    $("#filtersModal").modal("show");
+});
 
 // APPLY FILTERS
 // =========================
