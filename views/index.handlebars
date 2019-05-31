@@ -11,34 +11,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button> -->
 
-            <!-- Search Input Box -->
-            <form class="form-inline my-2 my-lg-0" id="searchForm">
-
-                <input class="form-control mr-sm-2" id="searchInputBox" type="search" placeholder="Search for Recipe"
-                    aria-label="Search" autocomplete="off">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
-
-                <!-- Buttons -->
-                <div id="navbarSupportedContent">
-
-                    <ul class="navbar-nav mr-auto">
-
-                        <!-- Filters -->
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#filtersModal"
-                                id="filterBtn">Filters</a>
-                        </li>
-
-                        <!-- View List -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#listModal" id="viewList">View List</a>
-                        </li> -->
-
-                    </ul>
-
-                </div>
-            </form>
-
             <a id="signOutBtn" class="button is-primary is-inverted" href="#" onclick="signOut();">
                 <span>Sign Out</span>
             </a>
@@ -118,31 +90,40 @@
         </div>
     </div>
 
-    <!-- Grocery List Modal -->
-    <!-- <div id="listModal" class="modal" role="dialog">
-
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Grocery List</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <div class="modal-body" id="groceryList"></div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" id="filterSubmit">Close</button>
-                </div>
-
-            </div>
-        </div>
-    </div> -->
-
     <!-- Content Container -->
 
     <div class="container" id="contentContainer">
 
+        <!-- Search Input Box -->
+        <div class="row">
+            <form class="form-inline my-2 my-lg-0" id="searchForm">
+
+                <input class="form-control mr-sm-2" id="searchInputBox" type="search" placeholder="Search for Recipe"
+                    aria-label="Search" autocomplete="off">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn">Search</button>
+
+                <!-- Buttons -->
+                <div id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <!-- Filters -->
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#filtersModal"
+                                id="filterBtn">Filters</a>
+                        </li>
+
+                        <!-- View List -->
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" data-target="#listModal" id="viewList">View List</a>
+                        </li> -->
+
+                    </ul>
+
+                </div>
+            </form>
+        </div>
+        
         <div class="row" id="contentRow">
 
             <!-- Grocery List -->
