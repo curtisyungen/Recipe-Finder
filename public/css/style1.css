@@ -100,6 +100,10 @@ span {
     padding-right: 0px;
 }
 
+#contentRow {
+    margin-top: 50px;
+}
+
 #siteTitle {
     font-family: 'Roboto Slab', serif;
 }
@@ -148,6 +152,10 @@ span {
 
 #searchInputBox {
     width: 400px;
+}
+
+#searchRow {
+    margin-top: 10px;
 }
 
 #signOutBtn {
