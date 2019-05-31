@@ -43,6 +43,8 @@ $("#searchBtn").on("click", function (event) {
     }
 });
 
+$("#filterBtn").modal("toggle");
+
 // APPLY FILTERS
 // =========================
 
