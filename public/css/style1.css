@@ -144,7 +144,7 @@ span {
 
 #searchForm {
     left: 50%;
-    margin-top: 15px;
+    margin-top: 10px !important;
     position: absolute;
     transform: translate(-45%);
     z-index: 100;
